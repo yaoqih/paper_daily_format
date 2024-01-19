@@ -1,0 +1,1 @@
+# paper_daily_format
