@@ -104,6 +104,7 @@ with open('result.md','w',encoding='utf-8') as f:
             download_paper(Paper.replace('abs','pdf'),title)
             if Project_Page:
                 f.write(f'<u>{Project_Page}</u>'+'\n\n')
-            paper_summary=get_summary(Paper.replace('abs','pdf'))
-            f.write("&emsp;&emsp;"+paper_summary.replace('\n\n','\n\n&emsp;&emsp;')+'\n\n')
+            # paper_summary=get_summary(Paper.replace('abs','pdf'))
+            paper_summary=''
+            f.write("&ensp;&ensp;&ensp;&ensp;"+paper_summary.replace('\n\n','\n\n&&ensp;&ensp;&ensp;&ensp;')+'\n\n')
     
