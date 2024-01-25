@@ -5,9 +5,23 @@ import yaml
 from datetime import datetime
 import re
 import os
-authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlY2hvbWluZC1hcGktYXBpIiwiZXhwIjoxNzA1NjgyNTg0LCJpYXQiOjE3MDU2ODE2ODQsImp0aSI6ImNtbGE2NTR1ZHU2Y24zN2RjaW0wIiwidHlwIjoiYWNjZXNzIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIn0.cWlsHaub09vRmMbwYEgAklssLsvrkFr3pWU6uXKJZaszeLi7PI2-__U8VrzU17fJfAlUL6h2FuPJ1lwVNHJb0g"
-url = "https://kimi.moonshot.cn/api/chat/cmla6503r07bppj064k0/completion/stream"
+import time
+import requests
+from requests.adapters import HTTPAdapter
+
+s = requests.Session()
+s.mount('http://', HTTPAdapter(max_retries=3))
+s.mount('https://', HTTPAdapter(max_retries=3))
+
+
+authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwNjE3Mzc5NywiaWF0IjoxNzA2MTcyODk3LCJqdGkiOiJjbXAyM29hbG5sOTllNmhnamhrMCIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCJ9.ROz6TVpvT4Vz4xZIYdUKiYK63jQQvyfnd3i6c1yscfQh9cx1iuSjLyJBB-eG8XfUGueNJ7Y6UjLMrKbViDUCTg"
+
+url = "https://kimi.moonshot.cn/api/chat/cmp24hkodhskd0tu4ebg/completion/stream"
 paper_save_path='./paper_download/'
+proxies = {
+    'http': 'http://127.0.0.1:8466',
+    'https': 'http://127.0.0.1:8466'
+}
 def get_summary(arxiv_pdf_url):
     headers = {
         "accept": "*/*",
@@ -35,15 +49,20 @@ def get_summary(arxiv_pdf_url):
         "refs": [],
         "use_search": False
     }
-    response = requests.post(url, headers=headers, json=data, cookies={"credentials": "include"})
-    if response.status_code != 200:
-        print(response.text)
+    try:
+        response = requests.post(url, headers=headers, json=data, cookies={"credentials": "include"}, verify=False,proxies=proxies,timeout=120)
+    except requests.exceptions.RequestException as e:
+        # print(e)
+        # print(response.text)
         exit()
     response_json = [json.loads("{"+i+"}") for i in response.content.decode("utf-8").replace("data",'"data"').split('\n\n')[6:-1]]
     response_text = ''.join([i["data"]["text"] for i in response_json if 'data'in i and 'text' in i["data"]])
     return response_text
 def get_title_datetime(arxiv_abs_url):
-    response=requests.get(arxiv_abs_url)
+    try:
+        response = s.get(arxiv_abs_url, verify=False,proxies=proxies,timeout=5)
+    except requests.exceptions.RequestException as e:
+        print(e)
     soup=BeautifulSoup(response.content,'html.parser')
     title=soup.find('h1',class_='title mathjax').next.next.next.text
     datetime_submit=soup.find('div',class_='dateline').text.split('on')[1][1:-1]
@@ -57,7 +76,10 @@ if not os.path.exists(paper_save_path):
     os.mkdir(paper_save_path)
 def download_paper(url,title):
     f=open(paper_save_path+clean_filename(title)+'.pdf','wb')
-    response=requests.get(url+'.pdf')
+    try:
+        response = s.get(url+'.pdf', verify=False,proxies=proxies,timeout=5)
+    except requests.exceptions.RequestException as e:
+        print(e)
     f.write(response.content)
     f.close()
 def clean_filename(title):
@@ -68,7 +90,7 @@ def clean_filename(title):
     # 移除连续的空格并去除首尾空格
     clean_title = ' '.join(clean_title.split())
     return clean_title
-for file in os.lisdir(paper_save_path):
+for file in os.listdir(paper_save_path):
     os.remove(paper_save_path+file)
 with open('paper.yaml', 'r', encoding='utf-8') as f:
     topics = yaml.load(f.read(), Loader=yaml.FullLoader)
@@ -81,6 +103,7 @@ with open('result.md','w',encoding='utf-8') as f:
             f.write(f'{publish_datetime}｜'+'\n\n')
             download_paper(Paper.replace('abs','pdf'),title)
             if Project_Page:
-                f.write(f'[{Project_Page}]({Project_Page})')
+                f.write(f'<u>{Project_Page}</u>'+'\n\n')
             paper_summary=get_summary(Paper.replace('abs','pdf'))
-            f.write(paper_summary)
+            f.write("&emsp;&emsp;"+paper_summary.replace('\n\n','\n\n&emsp;&emsp;')+'\n\n')
+    
