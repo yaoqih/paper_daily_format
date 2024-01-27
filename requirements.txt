@@ -1,0 +1,6 @@
+urllib3==1.25.11
+requests
+tqdm
+beautifulsoup4
+pyyaml
+pdfplumber
