@@ -38,7 +38,8 @@ def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=req
     "temperature": 0,
     "presence_penalty": 0.5,
     }
-    res=s.post('https://hubchat1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60)
+    proxies = {"http": None, "https": None}
+    res=s.post('https://hubchat1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60,proxies=proxies)
     if len(res.content.decode('utf-8'))<200:
         print('gpt_error')
     return json.loads(res.content.decode('utf-8'))['choices'][0]['message']['content'].replace('\n','<br>').replace(' ','&nbsp;')

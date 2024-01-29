@@ -44,7 +44,7 @@ def get_mechanism_chatgpt(text):
 
 def get_summary(arxiv_pdf_url):
     return kimi(content=f"请用300字总结，分三段 <url id=\"\" type=\"url\" status=\"\" title=\"\" wc=\"\">{arxiv_pdf_url}</url>",s=s,authorization=authorization)
-if resume:
+if not resume:
     for file in os.listdir(paper_save_path):
         os.remove(paper_save_path+file)
 with open('paper.yaml', 'r', encoding='utf-8') as f:
@@ -58,14 +58,18 @@ for topic in topics:
             task_content[Paper]={}
 pbar = tqdm(task_content.keys())
 for Paper in pbar:
-    if task['title_datetime_url'] and 'title_datetime_url' not in task_content[Paper]:
-        task_content[Paper]['title_datetime_url']=get_title_datetime_url(Paper,s=s)
-    if task['download_paper'] and 'download_paper' not in task_content[Paper]:
-        download_paper(Paper.replace('abs','pdf'),task_content[Paper]['title_datetime_url'][0],paper_save_path=paper_save_path,s=s)
-    if task['summary'] and 'summary' not in task_content[Paper]:
-        task_content[Paper]['summary']=get_summary(Paper.replace('abs','pdf'))
-    if task['mechanism'] and 'mechanism' not in task_content[Paper]:
-        task_content[Paper]['mechanism']=get_mechanism(paper_save_path+clean_filename(task_content[Paper]['title_datetime_url'][0])+'.pdf')
+    try:
+        if task['title_datetime_url'] and 'title_datetime_url' not in task_content[Paper]:
+            task_content[Paper]['title_datetime_url']=get_title_datetime_url(Paper,s=s)
+        if task['download_paper'] and 'download_paper' not in task_content[Paper]:
+            download_paper(Paper.replace('abs','pdf'),task_content[Paper]['title_datetime_url'][0],paper_save_path=paper_save_path,s=s)
+        if task['mechanism'] and 'mechanism' not in task_content[Paper]:
+            task_content[Paper]['mechanism']=get_mechanism(paper_save_path+clean_filename(task_content[Paper]['title_datetime_url'][0])+'.pdf')
+        if task['summary'] and 'summary' not in task_content[Paper]:
+            task_content[Paper]['summary']=get_summary(Paper.replace('abs','pdf'))
+    except Exception as e:
+        print(e) 
+        json.dump(task_content,open('result.json','w',encoding='utf-8'),ensure_ascii=False)
     json.dump(task_content,open('result.json','w',encoding='utf-8'),ensure_ascii=False)
 with open('result.md','w',encoding='utf-8') as f:
     for topic in topics:
