@@ -55,17 +55,17 @@ if resume:
 for topic in topics:
     for Paper in topics[topic]:
         if Paper not in task_content:
-            task_content[Paper]={}
+            task_content[Paper]={"title_datetime_url":None,"mechanism":None,"summary":None}
 pbar = tqdm(task_content.keys())
 for Paper in pbar:
     try:
-        if task['title_datetime_url'] and 'title_datetime_url' not in task_content[Paper]:
+        if task['title_datetime_url'] and not task_content[Paper]['title_datetime_url']:
             task_content[Paper]['title_datetime_url']=get_title_datetime_url(Paper,s=s)
-        if task['download_paper'] and 'download_paper' not in task_content[Paper]:
+        if task['download_paper']:
             download_paper(Paper.replace('abs','pdf'),task_content[Paper]['title_datetime_url'][0],paper_save_path=paper_save_path,s=s)
-        if task['mechanism'] and 'mechanism' not in task_content[Paper]:
+        if task['mechanism'] and not task_content[Paper]['mechanism']:
             task_content[Paper]['mechanism']=get_mechanism(paper_save_path+clean_filename(task_content[Paper]['title_datetime_url'][0])+'.pdf')
-        if task['summary'] and 'summary' not in task_content[Paper]:
+        if task['summary'] and not task_content[Paper]['summary']:
             task_content[Paper]['summary']=get_summary(Paper.replace('abs','pdf'))
     except Exception as e:
         print(e) 
@@ -75,12 +75,15 @@ with open('result.md','w',encoding='utf-8') as f:
     for topic in topics:
         f.write('# Topic: '+topic+'｜\n\n')
         for Paper in topics[topic]:
-            title,publish_datetime,Project_Page=task_content[Paper]['title_datetime_url']
-            mechanism=task_content[Paper]['mechanism']
+            if not task_content[Paper]['title_datetime_url']:
+                title,publish_datetime,Project_Page='','',''
+            else:
+                title,publish_datetime,Project_Page=task_content[Paper]['title_datetime_url']
+            mechanism=task_content[Paper]['mechanism'] if task_content[Paper]['mechanism'] else ''
             f.write('## '+title+'\n\n')
             f.write(f'<datetime>{publish_datetime}｜{mechanism}</datetime>'+'\n\n')
             if Project_Page:
                 f.write(f'<u>{Project_Page}</u>'+'\n\n')
-            paper_summary=task_content[Paper]['summary']
+            paper_summary=task_content[Paper]['summary'] if task_content[Paper]['summary'] else ''
             f.write("&ensp;&ensp;&ensp;&ensp;"+paper_summary.replace('\n\n','\n\n&&ensp;&ensp;&ensp;&ensp;')+'\n\n')
     
