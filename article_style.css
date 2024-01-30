@@ -7,10 +7,11 @@
 */
 #nice {
     line-height: 1.25;
-    font-family: Optima-Regular, Optima, PingFangTC-Light, PingFangSC-light, PingFangTC-light;
+    font-family: Optima-Regular, PingFangTC-light;
     letter-spacing: 2px;
     background-size: 20px 20px;
     background-position: center center;
+  	font-size: 14px;
 }
 
 /* 段落，下方未标注标签参数均同此处
@@ -26,9 +27,10 @@
   */
 #nice p {
     margin: 5px 0px;
-    letter-spacing: 2px;
+    letter-spacing: 0.544px;
     font-size: 14px;
     word-spacing: 2px;
+  	line-height: 26px;
   	font-weight:300;
     color:#585858;
 }
@@ -43,6 +45,9 @@
     display: inline-block;
     font-weight: bold;
     color: #0055ff;
+    letter-spacing: normal;
+    white-space: normal;
+  	font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 /* 一级标题修饰 请参考有实例的主题 */
@@ -57,11 +62,13 @@
 /* 二级标题内容 */
 #nice h2 .content {
     font-size: 18px;
-    font-weight: bold;
+  	font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight:normal;
     display: inline-block;
     padding-left: 10px;
     border-left: 5px solid #0080ff;
   	line-height: 1.5;
+    letter-spacing: normal;
 }
 
 /* 二级标题修饰 请参考有实例的主题 */
@@ -130,7 +137,7 @@
 
 /* 加粗 */
 #nice strong {
-    color: #000000;
+    color: #616161;
     font-weight: bold;
 }
 
@@ -269,8 +276,21 @@
   */
 #nice .inline-equation svg {}
 #nice u{
+  font-weight: bold;
+	caret-color: rgb(88, 88, 88);
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    outline: 0px;
+    border-color: rgba(55, 53, 47, 0.4);
+    border-bottom-width: 0.05em;
+    border-bottom-style: solid;
+    text-align: justify;
+    visibility: visible;
+    letter-spacing: 0.544px;
+    opacity: 0.7;
+  text-decoration: none;
+}
+#nice datetime{
 	font-family:None;
-  	font-weight: bold;
-    font-size: 12px;
-  	color:#a8a8a8;
+  	font-weight:250;
 }
