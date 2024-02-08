@@ -88,5 +88,5 @@ with open('result.md','w',encoding='utf-8') as f:
             else:
                 f.write(f'<u>{Paper}</u>'+'\n\n')
             paper_summary=task_content[Paper]['summary'] if task_content[Paper]['summary'] else ''
-            f.write("&ensp;&ensp;&ensp;&ensp;"+paper_summary.replace('\n\n','\n\n&ensp;&ensp;&ensp;&ensp;')+'\n\n')
+            f.write(paper_summary+'\n\n')
     
