@@ -82,7 +82,7 @@ with open('result.md','w',encoding='utf-8') as f:
                 title,publish_datetime,Project_Page=task_content[Paper]['title_datetime_url']
             mechanism=task_content[Paper]['mechanism'] if task_content[Paper]['mechanism'] else ''
             f.write('## '+title+'\n\n')
-            f.write(f'<datetime>{publish_datetime}｜{mechanism}</datetime>'+'\n\n')
+            f.write(f'{publish_datetime}｜{mechanism}'+'\n\n')
             if Project_Page:
                 f.write(f'<u>{Project_Page}</u>'+'\n\n')
             else:
