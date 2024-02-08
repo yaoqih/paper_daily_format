@@ -14,7 +14,7 @@ from tqdm import tqdm
 paper_save_path='./paper_download/'
 if not os.path.exists(paper_save_path):
     os.mkdir(paper_save_path)
-authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwNjMzNjQ3NSwiaWF0IjoxNzA2MzM1NTc1LCJqdGkiOiJjbXE5cWx1Y3A3ZmR2cjE3N2FxZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCJ9.CkjL9xgAndT7HJLGJDFoMR-SykTe8XO-37-sFQLbWjm0u5KU3GOXwv4MSnVX-U2fooSVP8BwpfpLuBC80z06QQ"
+authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwNzM4NDQ0NiwiaWF0IjoxNzA3MzgzNTQ2LCJqdGkiOiJjbjI5bHVnM3IwN2FyZGdtMmFyZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.-qWhqRtMMIgjXUGpCA607h2v7TSbTxYbkMyhY6sAfPwmAmRYWvpexvNnlOQQmIBCtYPd3e_Jh6oGnAnYaH04DQ"
 proxies = {
     'http': 'http://127.0.0.1:8466',
     'https': 'https://127.0.0.1:8466'
@@ -27,9 +27,11 @@ s.mount('https://', HTTPAdapter(max_retries=3))
 task={'summary':1,'mechanism':1,'title_datetime_url':1,'download_paper':1}
 assert not (not task['title_datetime_url'] and task['download_paper']),'必须获取论文title才能下载论文'
 assert not (not task['download_paper'] and task['mechanism']),'必须下载论文后才能获取机构信息'
-
-filemt = time.localtime(os.stat('result.json').st_mtime)
-resume=time.strftime("%Y-%m-%d", filemt)==time.strftime("%Y-%m-%d", time.localtime())
+if  os.path.exists('result.json'):
+    filemt = time.localtime(os.stat('result.json').st_mtime)
+    resume=time.strftime("%Y-%m-%d", filemt)==time.strftime("%Y-%m-%d", time.localtime())
+else:
+    resume=False
 task_content={}
 
 def get_mechanism(file_name):
@@ -49,7 +51,6 @@ if not resume:
         os.remove(paper_save_path+file)
 with open('paper.yaml', 'r', encoding='utf-8') as f:
     topics = yaml.load(f.read(), Loader=yaml.FullLoader)
-    
 if resume:
     task_content=json.loads(open('result.json','r',encoding='utf-8').read())
 for topic in topics:
@@ -84,6 +85,8 @@ with open('result.md','w',encoding='utf-8') as f:
             f.write(f'<datetime>{publish_datetime}｜{mechanism}</datetime>'+'\n\n')
             if Project_Page:
                 f.write(f'<u>{Project_Page}</u>'+'\n\n')
+            else:
+                f.write(f'<u>{Paper}</u>'+'\n\n')
             paper_summary=task_content[Paper]['summary'] if task_content[Paper]['summary'] else ''
-            f.write("&ensp;&ensp;&ensp;&ensp;"+paper_summary.replace('\n\n','\n\n&&ensp;&ensp;&ensp;&ensp;')+'\n\n')
+            f.write("&ensp;&ensp;&ensp;&ensp;"+paper_summary.replace('\n\n','\n\n&ensp;&ensp;&ensp;&ensp;')+'\n\n')
     

@@ -40,6 +40,7 @@ def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=req
     }
     proxies = {"http": None, "https": None}
     res=s.post('https://hubchat1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60,proxies=proxies)
+    # res=s.post('https://hubchat1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60)
     if len(res.content.decode('utf-8'))<200:
         print('gpt_error')
     return json.loads(res.content.decode('utf-8'))['choices'][0]['message']['content'].replace('\n','<br>').replace(' ','&nbsp;')
@@ -84,7 +85,7 @@ def kimi(content,s=requests.Session(),authorization=None,url="https://kimi.moons
     response = s.post(f"https://kimi.moonshot.cn/api/chat/{id}/completion/stream", headers=headers, json=chat_data, cookies={"credentials": "include"},timeout=120)
     response_json = [json.loads("{"+i+"}") for i in response.content.decode("utf-8").replace("data",'"data"').split('\n\n')[6:-1] if 'cmpl' in i]
     response_text = ''.join([i["data"]["text"] for i in response_json if 'data'in i and 'text' in i["data"]])
-    return response_text
+    return response_text.strip()
 
 def refresh_auth(authorization,s=requests.Session()):
     url = "https://kimi.moonshot.cn/api/auth/token/refresh"

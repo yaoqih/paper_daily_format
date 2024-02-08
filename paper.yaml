@@ -1,9 +1,13 @@
-Image Generation:
-    - https://arxiv.org/abs/2401.13627
-    - https://arxiv.org/abs/2401.13270
-    - https://arxiv.org/abs/2401.13388
-# Video Generation:
-#     - https://arxiv.org/abs/2401.12945
-3D Reconstruction:
-    - https://arxiv.org/abs/2401.13203
-    - https://arxiv.org/abs/2401.13505
+Art |Aesthetic:
+    - https://arxiv.org/abs/2402.04754
+Image Generation|Street Views:
+    - https://arxiv.org/abs/2402.04504
+Image Edit|Noise Map Guidance:
+    - https://arxiv.org/abs/2402.04625
+Video Generation|Consistency:
+    - https://arxiv.org/abs/2402.04324
+3D Reconstruction|Indoor Scene, Real-time Large-scale Deformation:
+    - https://arxiv.org/abs/2402.04717
+    - https://arxiv.org/abs/2402.04796
+3D Generation|High-Resolution Gaussian:
+    - https://arxiv.org/abs/2402.05054
