@@ -1,0 +1,37 @@
+Make a Cheap Scaling: A Self-Cascade Diffusion Model for Higher-Resolution Adaptation
+Nanyang Technological University:NTU
+Tencent AI Lab:Tencent AI Lab
+The Hong Kong University of Science and Technology:HKUST
+Clemson University:Clemson Uni
+--------------------------------------------------------------------------------
+Training Class-Imbalanced Diffusion Model Via Overlap Optimization
+Fudan University:Fudan
+University of California Merced:UC Merced
+LMU Munich:LMU Munich
+Google Research:Google
+--------------------------------------------------------------------------------
+Explaining generative diffusion models via visual analysis for interpretable decision-making process
+Korea University:Korea Uni
+--------------------------------------------------------------------------------
+Control Color: Multimodal Diffusion-based Interactive Image Colorization
+S-Lab, Nanyang Technological University:NTU S-Lab
+--------------------------------------------------------------------------------
+LAVE: LLM-Powered Agent Assistance and Language Augmentation for Video Editing
+University of Toronto:UofT
+Reality Labs Research, Meta:Meta
+University of California San Diego:UCSD
+--------------------------------------------------------------------------------
+PEGASUS: Personalized Generative 3D Avatars with Composable Attributes
+Seoul National University:SNU
+--------------------------------------------------------------------------------
+GaussianObject: Just Taking Four Images to Get A High-Quality 3D Object with Gaussian Splatting
+Shanghai Jiao Tong University:SJTU
+Huawei:Huawei
+University of Toronto:Toronto Uni
+--------------------------------------------------------------------------------
+GaussianHair: Hair Modeling and Rendering with Light-aware Gaussians
+ShanghaiTech University:ShanghaiTech
+Huazhong University of Science and Technology:HUST
+Deemos Technology:Deemos
+LumiAni Technology:LumiAni
+--------------------------------------------------------------------------------

@@ -39,7 +39,7 @@ def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=req
     "presence_penalty": 0.5,
     }
     proxies = {"http": None, "https": None}
-    res=s.post('https://hubchat1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60,proxies=proxies)
+    res=s.post('https://hubtalk1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60,proxies=proxies)
     # res=s.post('https://hubchat1.top/api/openai/v1/chat/completions',headers=headers,data=json.dumps(body),timeout=60)
     if len(res.content.decode('utf-8'))<200:
         print('gpt_error')

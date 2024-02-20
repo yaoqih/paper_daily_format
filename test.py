@@ -1,24 +1,32 @@
-import requests
-import re
+from datasets import load_dataset
+import evaluate
+from transformers import (
+    AutoTokenizer,
+    TFAutoModelForSequenceClassification,
+)
 
-url = "https://kimi.moonshot.cn/api/chat"
-headers = {
-    "accept": "*/*",
-    "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-    "authorization": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwNjI3OTg3NCwiaWF0IjoxNzA2Mjc4OTc0LCJqdGkiOiJjbXBzMGZtY3A3ZmR2cjExbGx1ZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCJ9.JZGSS-P7BMEI3WuPDnzP8_8Rd4Wwmxbx4dxSA0eAo0-d6SGYzw0GMjeq7LmiWAzVk3JIkkCjYvjZv_WcR5nqZg",
-    "cache-control": "no-cache",
-    "content-type": "application/json",
-    "pragma": "no-cache",
-    "r-timezone": "Asia/Shanghai",
-    "sec-ch-ua": "\"Not_A Brand\";v=\"8\", \"Chromium\";v=\"120\", \"Microsoft Edge\";v=\"120\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Windows\"",
-}
+raw_datasets = load_dataset("glue", "mnli")
 
-payload = {
-    "name": "未命名会话",
-    "is_example": False
-}
+model_checkpoint = "distilbert-base-uncased"
+tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
 
-response = requests.post(url, headers=headers, json=payload)
-print(response.json())
+
+def preprocess_function(examples):
+    return tokenizer(examples["premise"], examples["hypothesis"], truncation=True)
+
+
+tokenized_datasets = raw_datasets.map(preprocess_function, batched=True)
+
+train_dataset = tokenized_datasets["train"].to_tf_dataset(
+    columns=["input_ids", "labels"], batch_size=16, shuffle=True
+)
+
+validation_dataset = tokenized_datasets["validation_matched"].to_tf_dataset(
+    columns=["input_ids", "labels"], batch_size=16, shuffle=True
+)
+
+model = TFAutoModelForSequenceClassification.from_pretrained(model_checkpoint)
+
+model.compile(loss="sparse_categorical_crossentropy", optimizer="adam")
+
+model.fit(train_dataset)

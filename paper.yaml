@@ -1,13 +1,14 @@
-Art |Aesthetic:
-    - https://arxiv.org/abs/2402.04754
-Image Generation|Street Views:
-    - https://arxiv.org/abs/2402.04504
-Image Edit|Noise Map Guidance:
-    - https://arxiv.org/abs/2402.04625
-Video Generation|Consistency:
-    - https://arxiv.org/abs/2402.04324
-3D Reconstruction|Indoor Scene, Real-time Large-scale Deformation:
-    - https://arxiv.org/abs/2402.04717
-    - https://arxiv.org/abs/2402.04796
-3D Generation|High-Resolution Gaussian:
-    - https://arxiv.org/abs/2402.05054
+Image & Video Generation｜Scaling, Self-Cascade Diffusion: 
+- https://arxiv.org/abs/2402.10491
+Diffusion｜Class-Imbalanced, Interpretability:
+- https://arxiv.org/abs/2402.10821
+- https://arxiv.org/abs/2402.10404
+Image Editing｜Interactive Colorization:
+- https://arxiv.org/abs/2402.10855
+Video Editing｜LLM Agent:
+- https://arxiv.org/abs/2402.10294
+3D Generation｜Avatars:
+- https://arxiv.org/abs/2402.10636
+3D Reconstruction｜Object, Hair:
+- https://arxiv.org/abs/2402.10259
+- https://arxiv.org/abs/2402.10483

@@ -1,1 +1,8 @@
 /paper_download/*
+/labels/
+/images_data/
+/images/
+/paper_labeled/
+/runs/
+/wandb/
+*.pyc

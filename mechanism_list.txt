@@ -1,0 +1,22 @@
+Massachusetts Institute of Technology:MIT
+Peking University:PKU
+Tencent AI Lab:Tencent AI Lab
+Deemos Technology:Deemos
+Nanyang Technological University:NTU
+The Hong Kong University of Science and Technology:HKUST
+Clemson University:Clemson Uni
+Fudan University:Fudan
+University of California Merced:UC Merced
+LMU Munich:LMU Munich
+Google Research:Google
+Korea University:Korea Uni
+S-Lab, Nanyang Technological University:NTU S-Lab
+University of Toronto:UofT
+Reality Labs Research, Meta:Meta
+University of California San Diego:UCSD
+Seoul National University:SNU
+Shanghai Jiao Tong University:SJTU
+Huawei:Huawei
+ShanghaiTech University:ShanghaiTech
+Huazhong University of Science and Technology:HUST
+LumiAni Technology:LumiAni

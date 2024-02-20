@@ -6,4 +6,6 @@ def clean_filename(title):
     clean_title = re.sub(illegal_chars, ' ', title)
     # 移除连续的空格并去除首尾空格
     clean_title = ' '.join(clean_title.split())
+    clean_title = re.sub(r'\$.*?\$', ' ', clean_title)
+
     return clean_title
