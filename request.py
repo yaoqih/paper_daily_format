@@ -14,7 +14,7 @@ from tqdm import tqdm
 paper_save_path='./paper_download/'
 if not os.path.exists(paper_save_path):
     os.mkdir(paper_save_path)
-authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwODM0NzI2MiwiaWF0IjoxNzA4MzQ2MzYyLCJqdGkiOiJjbjlrbnVtY3A3ZmQxM2k4cWQ4MCIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.N1XnSNh5Yb_kI3zMkv7N_5ArTIGV0cwTXXZ1c4zsQV0RgGSs_mI1su4TKTQLNBayCxStig5isePcsGOqwo_OTQ"
+authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwOTU0NjYxMiwiaWF0IjoxNzA5NTQ1NzEyLCJqdGkiOiJjbmlwaHM2Y3A3ZjZoa28xMDk1ZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.1JFjthvXnD86tOdBbS84GzI6l-fyuzk0dRxrXC0rno61eZ9PUU-05Su5e1r6iTXa2V0YPrZlsfx0BWjr57DIgQ"
 proxies = {
     'http': 'http://127.0.0.1:8466',
     'https': 'https://127.0.0.1:8466'
@@ -44,8 +44,8 @@ def get_mechanism_chatgpt(text):
     content=f"I will give you a page of paper next. Please find out the names of all the authors’ schools or research institutions, and reply to me in the form of name:name abbreviation, separated by '||' For example:“Massachusetts Institute of Technology:MIT||Peking University:PKU||Tencent AI Lab:Tencent AI Lab||Deemos Technology:Deemos”。If there are multiple identical schools or research institutions. Only answer the research school, institution and its abbreviation according to the prescribed format. Do not answer other information.paper：```{text}```"
     return chatgpt(content=content,s=s)
 
-def get_summary(arxiv_pdf_url):
-    return kimi(content=f"请用300字总结，分三段 <url id=\"\" type=\"url\" status=\"\" title=\"\" wc=\"\">{arxiv_pdf_url}</url>",s=s,authorization=authorization)
+def get_summary(arxiv_pdf_url,title=None):
+    return kimi(content=f"请用300字总结，分三段并且简述在相比于之前研究的改进: <url id=\"\" type=\"url\" status=\"\" title=\"\" wc=\"\">{arxiv_pdf_url}</url>",s=s,authorization=authorization,title=title)
 if not resume:
     for file in os.listdir(paper_save_path):
         if file.endswith('.pdf'):
@@ -68,7 +68,7 @@ for Paper in pbar:
         if task['mechanism'] and not task_content[Paper]['mechanism']:
             task_content[Paper]['mechanism']=get_mechanism(paper_save_path+clean_filename(task_content[Paper]['title_datetime_url'][0])+'.pdf')
         if task['summary'] and not task_content[Paper]['summary']:
-            task_content[Paper]['summary']=get_summary(Paper.replace('abs','pdf'))
+            task_content[Paper]['summary']=get_summary(Paper.replace('abs','pdf'),task_content[Paper]['title_datetime_url'][0][:20])
     except Exception as e:
         print(e) 
         print(f'Error in {Paper}')

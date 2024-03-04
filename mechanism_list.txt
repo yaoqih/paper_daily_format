@@ -20,3 +20,39 @@ Huawei:Huawei
 ShanghaiTech University:ShanghaiTech
 Huazhong University of Science and Technology:HUST
 LumiAni Technology:LumiAni
+UC Berkeley:UCBerkeley
+NVIDIA Corporation:NVIDIA
+Tsinghua University:THU
+Renmin University of China:RUC
+Beijing Key Laboratory of Big Data Management and Analysis Methods:BDAI
+ShengShu:ShengShu
+Pazhou Laboratory (Huangpu):Pazhou Lab
+Gaoling School of Artificial Intelligence:GSAI
+Baidu Inc.:Baidu
+Columbia University:Columbia Uni
+Toyota Research Institute:TRI
+King Abdullah University of Science and Technology:KAUST
+Snap Inc.:Snap
+Visual Geometry Group, F:Oxford
+ByteDance:ByteDance
+University of California, San Diego:UCSD
+TheUniversityofHongKong:HKU
+TencentGames:TencentGames
+UniversityofPennsylvania:UPenn
+TexasA&MUniversity:TAMU
+UCSanDiego:UCSD
+UCLA:UCLA
+CornellUniversity:Cornell
+ZhejiangUniversity:ZJU
+IITMadras:IITM
+Adobe:Adobe
+TsinghuaUniversity:THU
+VAST:VAST
+ShanghaiTechUniversity:ShanghaiTech
+MPIInformatik:MPII
+StanfordUniversity:Stanford Uni
+Northwestern Polytechnical University:NPU
+National University of Singapore:NUS
+Sea AI Lab:Sea AI Lab
+Skywork AI:Skywork AI
+Xi'an Jiaotong University:XJTU

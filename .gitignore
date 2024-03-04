@@ -5,4 +5,6 @@
 /paper_labeled/
 /runs/
 /wandb/
+/image/
+3D summary.md
 *.pyc

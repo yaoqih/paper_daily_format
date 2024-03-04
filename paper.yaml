@@ -1,14 +1,20 @@
-Image & Video Generation｜Scaling, Self-Cascade Diffusion: 
-- https://arxiv.org/abs/2402.10491
-Diffusion｜Class-Imbalanced, Interpretability:
-- https://arxiv.org/abs/2402.10821
-- https://arxiv.org/abs/2402.10404
-Image Editing｜Interactive Colorization:
-- https://arxiv.org/abs/2402.10855
-Video Editing｜LLM Agent:
-- https://arxiv.org/abs/2402.10294
-3D Generation｜Avatars:
-- https://arxiv.org/abs/2402.10636
-3D Reconstruction｜Object, Hair:
-- https://arxiv.org/abs/2402.10259
-- https://arxiv.org/abs/2402.10483
+Image Generation｜T2I:
+    - https://arxiv.org/abs/2403.00587
+    - https://arxiv.org/abs/2403.00644
+Image Generation｜Control, Editing, Personalization:
+    - https://arxiv.org/abs/2403.00467
+    - https://arxiv.org/abs/2403.00437
+    - https://arxiv.org/abs/2403.00483
+Image Generation｜Stylization:
+    - https://arxiv.org/abs/2403.00459
+Transformer｜Spatial Relations:
+    - https://arxiv.org/abs/2403.00729
+Video｜Video LLMs, Listening Head:
+    - https://arxiv.org/abs/2403.00476
+    - https://arxiv.org/abs/2403.00274
+3D Generation｜Shape:
+    - https://arxiv.org/abs/2403.00372
+3D Graphs｜Surface Normal Estimation:
+    - https://arxiv.org/abs/2403.00712
+AI for Science:
+    - https://arxiv.org/abs/2403.00231

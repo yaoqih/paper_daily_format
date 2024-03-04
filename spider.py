@@ -10,6 +10,7 @@ warnings.filterwarnings("ignore")
 def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=requests.Session()):
     headers={
         "accept": "*/*",
+        "Authorization":"Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMzc1NjI2MzcxIiwiaWF0IjoxNzA5NTQzNDk0LCJleHAiOjE3MTAxNDgyOTR9.HYHNTre6cLoi4USimnbLhRuFlqAe6V3DpdP5zj5fN-8kqVN3WVEfr8tzgrnVS0WkQdXP7fY_cAb03DsSErXhQQ",
         "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
         "cache-control": "no-cache",
         "content-type": "application/json",
@@ -34,7 +35,7 @@ def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=req
         "content": content
         }
     ],
-    "model": "gpt-3.5-turbo-16k-0613",
+    "model": "gpt-3.5-turbo",
     "temperature": 0,
     "presence_penalty": 0.5,
     }
@@ -45,7 +46,7 @@ def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=req
         print('gpt_error')
     return json.loads(res.content.decode('utf-8'))['choices'][0]['message']['content'].replace('\n','<br>').replace(' ','&nbsp;')
 
-def kimi(content,s=requests.Session(),authorization=None,url="https://kimi.moonshot.cn/api/chat"):
+def kimi(content,s=requests.Session(),authorization=None,url="https://kimi.moonshot.cn/api/chat",title=None):
     headers = {
         "accept": "*/*",
         "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
@@ -74,7 +75,7 @@ def kimi(content,s=requests.Session(),authorization=None,url="https://kimi.moons
     }
     increase_data = {
         'is_example':False,
-        'name':'未命名会话',
+        'name':'未命名会话' if not title else title,
     }
     response = s.post(url, headers=headers, json=increase_data, cookies={"credentials": "include"},timeout=120)
     if '授权已过期' in response.text:

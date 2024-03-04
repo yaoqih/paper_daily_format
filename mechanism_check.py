@@ -8,8 +8,8 @@ if  os.path.exists('result.json'):
     resume=time.strftime("%Y-%m-%d", filemt)==time.strftime("%Y-%m-%d", time.localtime())
 else:
     resume=False
-if resume:
-    task_content=json.loads(open('result.json','r',encoding='utf-8').read())
+
+task_content=json.loads(open('result.json','r',encoding='utf-8').read())
 with open('paper.yaml', 'r', encoding='utf-8') as f:
     topics = yaml.load(f.read(), Loader=yaml.FullLoader)
 mechanism_check=open('mechanism_check.txt','r',encoding='utf-8').read().split('--------------------------------------------------------------------------------\n')

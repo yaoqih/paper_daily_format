@@ -1,37 +1,57 @@
-Make a Cheap Scaling: A Self-Cascade Diffusion Model for Higher-Resolution Adaptation
-Nanyang Technological University:NTU
-Tencent AI Lab:Tencent AI Lab
-The Hong Kong University of Science and Technology:HKUST
-Clemson University:Clemson Uni
+Improving Explicit Spatial Relationships in Text-to-Image Generation through an Automatically Derived Dataset
+University of the Basque Country UPV/EHU:UPV/EHU
+University of Edinburgh:Edinburgh
 --------------------------------------------------------------------------------
-Training Class-Imbalanced Diffusion Model Via Overlap Optimization
-Fudan University:Fudan
-University of California Merced:UC Merced
-LMU Munich:LMU Munich
-Google Research:Google
+Diff-Plugin: Revitalizing Details for Diffusion-based Low-level Tasks
+City University of Hong Kong:CityUHK
+Adobe Research:Adobe
 --------------------------------------------------------------------------------
-Explaining generative diffusion models via visual analysis for interpretable decision-making process
-Korea University:Korea Uni
+When ControlNet Meets Inexplicit Masks: A Case Study of ControlNet on its Contour-following Ability
+Wuhan University:WHU
+University of Sydney:USYD
+Corresponding Author:CA
 --------------------------------------------------------------------------------
-Control Color: Multimodal Diffusion-based Interactive Image Colorization
-S-Lab, Nanyang Technological University:NTU S-Lab
+LoMOE: Localized Multi-Object Editing via Multi-Diffusion
+TCS Research:TCS Research
+IISc Bangalore:IISc Bangalore
+IIT Delhi:IIT Delhi
 --------------------------------------------------------------------------------
-LAVE: LLM-Powered Agent Assistance and Language Augmentation for Video Editing
-University of Toronto:UofT
-Reality Labs Research, Meta:Meta
-University of California San Diego:UCSD
+RealCustom: Narrowing Real Text Word for Real-Time Open-Domain Text-to-Image Customization
+University of Science and Technology of China:USTC
+ByteDance Inc.:ByteDance
 --------------------------------------------------------------------------------
-PEGASUS: Personalized Generative 3D Avatars with Composable Attributes
-Seoul National University:SNU
+Deformable One-shot Face Stylization via DINO Semantic Guidance
+Visual Computing Research Center, Shenzhen University:VCRC
+Shenzhen University:SZU
 --------------------------------------------------------------------------------
-GaussianObject: Just Taking Four Images to Get A High-Quality 3D Object with Gaussian Splatting
-Shanghai Jiao Tong University:SJTU
-Huawei:Huawei
-University of Toronto:Toronto Uni
+Can Transformers Capture Spatial Relations between Objects?
+Tsinghua University:THU
+University of Pennsylvania:UPenn
+Shanghai Artificial Intelligence Laboratory:Shanghai AI Lab
+Shanghai QiZhi Institute:Shanghai QiZhi Inst
 --------------------------------------------------------------------------------
-GaussianHair: Hair Modeling and Rendering with Light-aware Gaussians
-ShanghaiTech University:ShanghaiTech
-Huazhong University of Science and Technology:HUST
-Deemos Technology:Deemos
-LumiAni Technology:LumiAni
+TempCompass: Do Video LLMs Really Understand Videos?
+Peking University:PKU
+The University of Hong Kong:HKU
+Huawei Noah’s Ark Lab:Huawei Noah’s Ark Lab
+--------------------------------------------------------------------------------
+CustomListener: Text-guided Responsive Interaction for User-friendly Listening Head Generation
+VisionAIDepartment,Meituan:Meituan
+4202:4202
+raM:raM
+VC.sc:VC.sc
+viXra:viXra
+--------------------------------------------------------------------------------
+HyperSDFusion: Bridging Hierarchical Structures in Language and Geometry for Enhanced 3D Text2Shape Generation
+State Key Laboratory of Virtual Reality Technology and Systems, Beihang University:BUAA
+Computer Aided Medical Procedures, Technical University of Munich:TUM
+Imperial College London:Imperial
+Zhongguancun Laboratory, Beijing:Zhongguancun
+--------------------------------------------------------------------------------
+Rethinking Inductive Biases for Surface Normal Estimation
+Imperial College London:ICL
+--------------------------------------------------------------------------------
+Multimodal ArXiv: A Dataset for Improving Scientific Comprehension of Large Vision-Language Models
+TheUniversityofHongKong:HKU
+PekingUniversity:PKU
 --------------------------------------------------------------------------------
