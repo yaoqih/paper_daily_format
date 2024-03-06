@@ -1,20 +1,16 @@
-Image Generation｜T2I:
-    - https://arxiv.org/abs/2403.00587
-    - https://arxiv.org/abs/2403.00644
-Image Generation｜Control, Editing, Personalization:
-    - https://arxiv.org/abs/2403.00467
-    - https://arxiv.org/abs/2403.00437
-    - https://arxiv.org/abs/2403.00483
-Image Generation｜Stylization:
-    - https://arxiv.org/abs/2403.00459
-Transformer｜Spatial Relations:
-    - https://arxiv.org/abs/2403.00729
-Video｜Video LLMs, Listening Head:
-    - https://arxiv.org/abs/2403.00476
-    - https://arxiv.org/abs/2403.00274
-3D Generation｜Shape:
-    - https://arxiv.org/abs/2403.00372
-3D Graphs｜Surface Normal Estimation:
-    - https://arxiv.org/abs/2403.00712
-AI for Science:
-    - https://arxiv.org/abs/2403.00231
+Image Generation｜:
+    - https://arxiv.org/abs/2403.02981
+    - https://arxiv.org/abs/2403.02580
+Video Generation:
+    - https://arxiv.org/abs/2403.02827
+3D Generation:
+    - https://arxiv.org/abs/2403.02460
+3D Reconstruction:
+    - https://arxiv.org/abs/2403.02561
+Motion Generation:
+    - https://arxiv.org/abs/2403.03122
+Audio Generation｜Speech:
+    - https://arxiv.org/abs/2403.03100
+LLM｜Code, Math:
+    - https://arxiv.org/abs/2403.03163
+    - https://arxiv.org/abs/2403.02884

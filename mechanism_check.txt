@@ -1,57 +1,47 @@
-Improving Explicit Spatial Relationships in Text-to-Image Generation through an Automatically Derived Dataset
-University of the Basque Country UPV/EHU:UPV/EHU
-University of Edinburgh:Edinburgh
+Doubly Abductive Counterfactual Inference for Text-based Image Editing
+Fudan University:Fudan
+Nanyang Technological University:NTU
+Hefei University of Technology:HFUT
 --------------------------------------------------------------------------------
-Diff-Plugin: Revitalizing Details for Diffusion-based Low-level Tasks
-City University of Hong Kong:CityUHK
-Adobe Research:Adobe
+Tuning-Free Noise Rectification for High Fidelity Image-to-Video Generation
+Alimama Tech:Alibaba Group
+Beijing:null
 --------------------------------------------------------------------------------
-When ControlNet Meets Inexplicit Masks: A Case Study of ControlNet on its Contour-following Ability
-Wuhan University:WHU
-University of Sydney:USYD
-Corresponding Author:CA
+MagicClay: Sculpting Meshes With Generative Neural Fields
+Tel Aviv University:TAU
+Adobe Research:Adobe Research
+Université de Montréal:UdeM
 --------------------------------------------------------------------------------
-LoMOE: Localized Multi-Object Editing via Multi-Diffusion
-TCS Research:TCS Research
-IISc Bangalore:IISc Bangalore
-IIT Delhi:IIT Delhi
+Semantic Human Mesh Reconstruction with Textures
+Nanjing University:NJU
+Texas A&M University:TAMU
 --------------------------------------------------------------------------------
-RealCustom: Narrowing Real Text Word for Real-Time Open-Domain Text-to-Image Customization
-University of Science and Technology of China:USTC
-ByteDance Inc.:ByteDance
---------------------------------------------------------------------------------
-Deformable One-shot Face Stylization via DINO Semantic Guidance
-Visual Computing Research Center, Shenzhen University:VCRC
-Shenzhen University:SZU
---------------------------------------------------------------------------------
-Can Transformers Capture Spatial Relations between Objects?
-Tsinghua University:THU
-University of Pennsylvania:UPenn
-Shanghai Artificial Intelligence Laboratory:Shanghai AI Lab
-Shanghai QiZhi Institute:Shanghai QiZhi Inst
---------------------------------------------------------------------------------
-TempCompass: Do Video LLMs Really Understand Videos?
-Peking University:PKU
-The University of Hong Kong:HKU
-Huawei Noah’s Ark Lab:Huawei Noah’s Ark Lab
---------------------------------------------------------------------------------
-CustomListener: Text-guided Responsive Interaction for User-friendly Listening Head Generation
-VisionAIDepartment,Meituan:Meituan
-4202:4202
-raM:raM
-VC.sc:VC.sc
-viXra:viXra
---------------------------------------------------------------------------------
-HyperSDFusion: Bridging Hierarchical Structures in Language and Geometry for Enhanced 3D Text2Shape Generation
-State Key Laboratory of Virtual Reality Technology and Systems, Beihang University:BUAA
-Computer Aided Medical Procedures, Technical University of Munich:TUM
-Imperial College London:Imperial
-Zhongguancun Laboratory, Beijing:Zhongguancun
---------------------------------------------------------------------------------
-Rethinking Inductive Biases for Surface Normal Estimation
+NRDF: Neural Riemannian Distance Fields for Learning Articulated Pose Priors
+University of Tu¨bingen:UT
+Tübingen AI Center:TAC
+Max Planck Institute for Informatics:MPI
 Imperial College London:ICL
 --------------------------------------------------------------------------------
-Multimodal ArXiv: A Dataset for Improving Scientific Comprehension of Large Vision-Language Models
-TheUniversityofHongKong:HKU
-PekingUniversity:PKU
+NaturalSpeech 3: Zero-Shot Speech Synthesis with Factorized Codec and Diffusion Models
+University of Science and Technology of China:USTC
+The Chinese University of Hong Kong, Shenzhen:CUHK Shenzhen
+Zhejiang University:ZJU
+The University of Tokyo:UTokyo
+Peking University:PKU
+Microsoft Research Asia & Microsoft Azure Speech:Microsoft Research Asia & Microsoft Azure Speech
+--------------------------------------------------------------------------------
+Design2Code: How Far Are We From Automating Front-End Engineering?
+Stanford University:SU
+Georgia Tech:GT
+Microsoft:Microsoft
+Google DeepMind:Google DeepMind
+--------------------------------------------------------------------------------
+MathScale: Scaling Instruction Tuning for Mathematical Reasoning
+Chinese University of Hong Kong, Shenzhen, China:CUHK
+Microsoft Research Asia, Beijing, China:MSRA
+Shenzhen Research Institute of Big Data, Shenzhen, China:SRIBD
+--------------------------------------------------------------------------------
+AtomoVideo: High Fidelity Image-to-Video Generation
+AlimamaTech,AlibabaGroup:AlimamaTech
+AlibabaGroup:AG
 --------------------------------------------------------------------------------

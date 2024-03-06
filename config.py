@@ -1,0 +1,2 @@
+clash_port=8466
+opai_key="sk-T4p4PNbNOBuVBxXpwt2Hr67YtPbMVH0xCFDDZ5ieDSbtfr7i"

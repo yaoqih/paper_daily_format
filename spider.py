@@ -6,7 +6,23 @@ from utils import clean_filename
 import os
 import warnings
 import re
+from config import clash_port,opai_key
+import httpx
 warnings.filterwarnings("ignore")
+
+from openai import OpenAI
+
+client = OpenAI(
+    # defaults to os.environ.get("OPENAI_API_KEY")
+    api_key=opai_key,
+    base_url="https://api.chatanywhere.cn",
+    http_client=httpx.Client(
+        proxies=f"http://127.0.0.1:{clash_port}",
+        transport=httpx.HTTPTransport(local_address="0.0.0.0"),
+    )
+)
+
+
 def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=requests.Session()):
     headers={
         "accept": "*/*",
@@ -45,6 +61,17 @@ def chatgpt(system='你是一个经验丰富的科研工作者',content='',s=req
     if len(res.content.decode('utf-8'))<200:
         print('gpt_error')
     return json.loads(res.content.decode('utf-8'))['choices'][0]['message']['content'].replace('\n','<br>').replace(' ','&nbsp;')
+
+def chatgpt_openai(system='You are an experienced scientific researcher',content='',s=requests.Session()):
+    messages=[
+            {"role": "system", "content": system},
+            {"role": "user", "content": content},
+        ]
+    try:
+        completion = client.chat.completions.create(model="gpt-3.5-turbo", messages=messages)
+    except Exception as e:
+        print(e)
+    return completion.choices[0].message.content.replace('\n','<br>').replace(' ','&nbsp;')
 
 def kimi(content,s=requests.Session(),authorization=None,url="https://kimi.moonshot.cn/api/chat",title=None):
     headers = {
@@ -86,6 +113,9 @@ def kimi(content,s=requests.Session(),authorization=None,url="https://kimi.moons
     response = s.post(f"https://kimi.moonshot.cn/api/chat/{id}/completion/stream", headers=headers, json=chat_data, cookies={"credentials": "include"},timeout=120)
     response_json = [json.loads("{"+i+"}") for i in response.content.decode("utf-8").replace("data",'"data"').split('\n\n')[6:-1] if 'cmpl' in i]
     response_text = ''.join([i["data"]["text"] for i in response_json if 'data'in i and 'text' in i["data"]])
+    if "由于网络原因" in response_text or "由于网络问题" in response_text:
+        print("Kimi network error,Please run again later! "+content)
+        return ""
     return response_text.strip()
 
 def refresh_auth(authorization,s=requests.Session()):

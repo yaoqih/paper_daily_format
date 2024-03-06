@@ -6,18 +6,18 @@ import time
 import requests
 from requests.adapters import HTTPAdapter
 import json
-from spider import chatgpt,kimi,get_title_datetime_url,download_paper,refresh_auth
+from spider import chatgpt,kimi,get_title_datetime_url,download_paper,refresh_auth,chatgpt_openai
 from utils import clean_filename
 import pdfplumber
 from tqdm import tqdm
-
+from config import clash_port
 paper_save_path='./paper_download/'
 if not os.path.exists(paper_save_path):
     os.mkdir(paper_save_path)
-authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwOTU0NjYxMiwiaWF0IjoxNzA5NTQ1NzEyLCJqdGkiOiJjbmlwaHM2Y3A3ZjZoa28xMDk1ZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.1JFjthvXnD86tOdBbS84GzI6l-fyuzk0dRxrXC0rno61eZ9PUU-05Su5e1r6iTXa2V0YPrZlsfx0BWjr57DIgQ"
+authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwOTcyNDMwMywiaWF0IjoxNzA5NzIzNDAzLCJqdGkiOiJjbms0dTJwa3FxNGdxMWRuamExZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.58fxXEha7qfse2sTdiecL2VFTeOSwp3k6AP7B7B5OdzZBL9BTtEaQnbGyvqEsatSf9HWnruyi2diZgNbujIBPw"
 proxies = {
-    'http': 'http://127.0.0.1:8466',
-    'https': 'https://127.0.0.1:8466'
+    'http': f'http://127.0.0.1:{clash_port}',
+    'https': f'https://127.0.0.1:{clash_port}'
 }
 s = requests.Session()
 s.proxies = proxies
@@ -42,7 +42,7 @@ def get_mechanism(file_name):
 
 def get_mechanism_chatgpt(text):
     content=f"I will give you a page of paper next. Please find out the names of all the authors’ schools or research institutions, and reply to me in the form of name:name abbreviation, separated by '||' For example:“Massachusetts Institute of Technology:MIT||Peking University:PKU||Tencent AI Lab:Tencent AI Lab||Deemos Technology:Deemos”。If there are multiple identical schools or research institutions. Only answer the research school, institution and its abbreviation according to the prescribed format. Do not answer other information.paper：```{text}```"
-    return chatgpt(content=content,s=s)
+    return chatgpt_openai(content=content,s=s)
 
 def get_summary(arxiv_pdf_url,title=None):
     return kimi(content=f"请用300字总结，分三段并且简述在相比于之前研究的改进: <url id=\"\" type=\"url\" status=\"\" title=\"\" wc=\"\">{arxiv_pdf_url}</url>",s=s,authorization=authorization,title=title)
