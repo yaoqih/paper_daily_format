@@ -9,3 +9,4 @@ def clean_filename(title):
     clean_title = re.sub(r'\$.*?\$', ' ', clean_title)
 
     return clean_title
+

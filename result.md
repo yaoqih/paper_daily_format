@@ -1,126 +1,326 @@
-# Topic: Image Generation｜｜
+DialogGen: Multi-modal Interactive Dialogue System for Multi-turn Text-to-Image Generation
+DialogGen：用于多回合文本到图像生成的多模式交互式对话系统
+StreamMultiDiffusion: Real-Time Interactive Generation with Region-Based Semantic Control
+StreamMultiDiffusion：基于区域语义控制的实时交互生成
+Glyph-ByT5: A Customized Text Encoder for Accurate Visual Text Rendering
+Glyph-ByT5：用于精确视觉文本渲染的自定义文本编码器
+Desigen: A Pipeline for Controllable Design Template Generation
+Desigen:一个可控制设计模板生成的管道
+ARtVista: Gateway To Empower Anyone Into Artist
+ARtVista：让任何人都能成为艺术家的门户
+What Sketch Explainability Really Means for Downstream Tasks
+草图可解释性对下游任务的真正意义
+SketchINR: A First Look into Sketches as Implicit Neural Representations
+SketchINR：作为隐式神经表示的草图初探
+NoiseDiffusion: Correcting Noise for Image Interpolation with Diffusion Models beyond Spherical Linear Interpolation
+NoiseDiffusion：用球面线性插值以外的扩散模型校正图像插值的噪声
+Eta Inversion: Designing an Optimal Eta Function for Diffusion-based Real Image Editing
+Eta反演：为基于扩散的真实图像编辑设计最佳Eta函数
+Holo-Relighting: Controllable Volumetric Portrait Relighting from a Single Image
+全息重影：来自单个图像的可控体积人像重影
+Video Editing via Factorized Diffusion Distillation
+基于因子扩散蒸馏的视频编辑
+Intention-driven Ego-to-Exo Video Generation
+意图驱动的自我到Exo视频生成
+Sculpt3D: Multi-View Consistent Text-to-3D Generation with Sparse 3D Prior
+Sculpt3D:具有稀疏3D先验的多视图一致文本到3D生成
+3D-SceneDreamer: Text-Driven 3D-Consistent Scene Generation
+3D场景铰刀：文本驱动的3D一致场景生成
+Make-Your-3D: Fast and Consistent Subject-Driven 3D Content Generation
+Make-Your-3D：快速一致的主题驱动的3D内容生成
+Hyper-3DG: Text-to-3D Gaussian Generation via Hypergraph
+Hyper-3DG：通过Hypergraph实现文本到三维高斯生成
+Envision3D: One Image to 3D with Anchor Views Interpolation
+Envision3D:具有锚点视图插值的一个图像到3D
+Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting
+放宽三维高斯散射的精确初始化约束
+Unlocking the conversion of Web Screenshots into HTML Code with the WebSight Dataset
+使用WebSight数据集解锁Web屏幕截图到HTML代码的转换
+LocalMamba: Visual State Space Model with Windowed Selective Scan
+LocalMamba：带窗口选择性扫描的视觉状态空间模型
+Video Mamba Suite: State Space Model as a Versatile Alternative for Video Understanding
+视频曼巴套件：作为视频理解的通用替代方案的状态空间模型
+MambaTalk: Efficient Holistic Gesture Synthesis with Selective State Space Models
+MambaTalk：具有选择性状态空间模型的高效整体手势合成
+# Topic: Image Generation｜Text-to-Image｜Multi-turn Dialogue, Semantic Control｜
 
-## Doubly Abductive Counterfactual Inference for Text-based Image Editing
+## DialogGen: Multi-modal Interactive Dialogue System for Multi-turn Text-to-Image Generation
 
-2024.03.05｜
+2024.03.13｜CUHK, Tencent Hunyuan, SYSU
 
-<u>https://github.com/xuesong39/DAC</u>
+<u>https://hunyuan-dialoggen.github.io/</u>
 
-本研究提出了一种名为Doubly Abductive Counterfactual (DAC)的框架，用于基于文本的单图像编辑（Text-based Image Editing, TBIE）。该框架通过双重反事实推理来解决编辑过程中的可编辑性和保真度之间的权衡问题。首先，研究者们将一个外源变量参数化为UNet LoRA，用于编码所有图像细节。其次，引入另一个由文本编码器LoRA参数化的外源变量，以恢复因过度拟合而丢失的可编辑性。通过这种双重反事实推理，DAC能够在保持原始图像结构的同时，有效地实现各种编辑意图，如添加、移除、操纵、替换、风格转换和面部变化。
+本文介绍了DialogGen，这是一个多模态交互式对话系统（MIDS），专为多轮文本到图像生成而设计。DialogGen通过结合现有的大型多模态语言模型（MLLMs）和文本到图像（T2I）生成模型，以实现对用户自然语言指令的有效响应。该系统通过绘图提示对齐、精心策划的训练数据和错误校正机制，提高了输出模态的正确性和多模态输出的连贯性。此外，为了全面评估MIDS的性能，研究者们还提出了一个名为DialogBen的多模态对话基准测试，包含9957个三轮多模态对话，以及用于评估模态切换能力和生成图像连贯性的两个评估指标。
 
-相比于以往的研究，DAC框架的主要改进在于它能够更好地处理TBIE任务中的挑战。以往的方法往往在可编辑性和保真度之间难以取得良好的平衡，而DAC通过引入额外的反事实变量来编码编辑过程中的视觉转换，从而有效地解决了这一问题。此外，DAC框架在广泛的实验中展示了其在多种编辑操作中都能取得良好的性能，这在以往的研究中是不常见的。
+研究的主要贡献包括提出了DialogGen这一有效的管道，用于构建多轮文本到图像生成的交互式多模态对话系统。DialogGen利用绘图提示对齐和错误校正数据进行训练，这些数据由更强大的LLMs生成。此外，DialogBen基准测试的引入，为评估MIDS的模态切换能力和生成图像的连贯性提供了一个全面的框架。实验结果表明，DialogGen在生成正确输出模态和连贯多模态输出方面优于当前的最先进模型。
 
-在与现有方法的比较中，DAC在保持图像与文本提示一致性的同时，还能更好地保持对源图像的保真度。例如，在风格转换和对象替换等操作中，DAC生成的图像与文本提示更加一致，同时与源图像的相似度也更高。这些改进使得DAC在TBIE任务上达到了最先进的性能。未来的工作将集中在将DAC升级以支持基于视觉示例的编辑，并探索快速扩散模型和一致性模型来加速编辑过程中的微调和推理。
+尽管DialogGen在资源需求方面存在局限性，特别是在对T2I模型训练数据进行重新描述时，但通过使用高质量数据子集和已知分布Phq进行微调，可以简化这一过程。未来的工作可能会将训练数据收集与人类偏好对齐，从而使用算法如直接偏好优化来训练MLLMs，以更好地满足人类用户的需求。此外，研究者计划发布一个演示，以展示DialogGen的实际应用效果。
 
-## What do we learn from inverting CLIP models?
+## StreamMultiDiffusion: Real-Time Interactive Generation with Region-Based Semantic Control
 
-2024.03.05｜
+2024.03.14｜SNU, ASRI, Interdisciplinary Program in AI, SNU-LG AI Research Center
 
-<u>https://arxiv.org/abs/2403.02580</u>
+<u>https://github.com/ironjr/StreamMultiDiffusion</u>
 
-本研究通过模型反演方法探讨了CLIP（Contrastive Language-Image Pre-training）模型，并揭示了反演CLIP模型能够生成与指定目标提示语义对齐的图像。研究者利用这些反演图像深入了解CLIP模型的多个方面，包括概念融合能力和性别偏见的包含。值得注意的是，即使对于看似无害的提示，如“美丽的风景”，也观察到了NSFW（Not Safe For Work）图像的产生。此外，研究还发现，即使在使用名人名字作为提示时，CLIP模型也倾向于生成与性内容相关的图像，尤其是女性名人。
+StreamMultiDiffusion是由首尔国立大学的研究人员开发的一种实时区域基础文本到图像生成框架。该框架通过稳定快速推理技术和重组模型结构，提出了一种新的多提示流批处理架构，实现了比现有解决方案快10倍的全景图生成速度，并在单个RTX 2080 Ti GPU上实现了1.57 FPS的基于区域文本到图像合成的速度。这一突破性的进展为交互式图像生成开辟了新的范式——语义调色板，它允许用户通过给定的多个手绘区域实时生成高质量图像，这些区域编码了特定的语义含义，如“鹰”、“女孩”等。
 
-相比于以往的研究，本研究首次尝试通过模型反演的视角分析CLIP模型。以往的研究主要集中在生成模型上，而CLIP作为一个非生成模型，其内部知识的研究相对较少。通过反演，研究者能够探索CLIP模型在处理各种提示时的表现，包括其在概念融合、性别偏见以及训练数据规模对反演质量的影响等方面的行为。这些发现不仅为理解CLIP模型提供了新的视角，也揭示了在大规模模型训练中需要注意的潜在问题。
+在加速扩散模型推理和控制扩散模型方面，已有多项研究取得了进展。例如，DDIM和潜在一致性模型（LCM）减少了从数千步到数十步的推理步骤，而StreamDiffusion则通过管道架构实现了大规模扩散模型的亚秒级推理。在控制方面，ControlNet和IP-Adapter展示了对图像生成过程的精细控制。然而，这些工作大多是独立发展的，将它们结合起来以实现更快的可控生成仍面临挑战。
 
-研究的改进之处在于，它不仅展示了CLIP模型在概念融合方面的能力，还揭示了模型在性别偏见方面的倾向。通过反演，研究者能够观察到模型在处理性别相关提示时的偏差，例如在“大学成功的学生”这一提示下，几乎所有反演图像都被分类为男性。此外，研究还探讨了训练数据规模对反演图像质量的影响，发现更大的训练数据集能够产生更高质量的反演图像。这些发现对于改进CLIP模型的训练和应用具有重要意义。
+StreamMultiDiffusion通过三种技术稳定了MultiDiffusion，构建了一个与LCM兼容的快速区域基础文本到图像合成和全景图生成框架：潜在预平均、掩模中心引导自举和量化掩模。此外，该框架还提出了一种新的语义绘画框架，即语义调色板，作为下一代图像创建范式。通过这种方式，用户可以像使用彩色画笔一样，通过文本提示进行实时绘画，从而实现专业级的工具需求。尽管存在一些局限性，如仍需要几步逆向扩散，但StreamMultiDiffusion为图像生成和编辑领域带来了快速而强大的交互式工具。
 
-# Topic: Video Generation｜
+# Topic: Image Generation｜Design｜Visual Text Rendering, Design Templates｜
 
-## Tuning-Free Noise Rectification for High Fidelity Image-to-Video Generation
+## Glyph-ByT5: A Customized Text Encoder for Accurate Visual Text Rendering
 
-2024.03.05｜
+2024.03.14｜MSRA, THU, PKU, ANU
 
-<u>https://noise-rectification.github.io</u>
+<u>https://arxiv.org/abs/2403.09622</u>
 
-由于网络原因，我无法直接解析您提供的链接内容。如果您需要该论文的总结，建议您检查链接的合法性并尝试重新发送。如果您有该论文的文本内容或其他格式的文件，您也可以上传给我，我将能够阅读文件内容后为您提供总结。
+本文介绍了Glyph-ByT5，这是一种为提高视觉文本渲染精度而定制的文本编码器。在当代文本到图像生成模型中，视觉文本的准确渲染是一个基本挑战，主要问题在于文本编码器的不足。作者指出，为了实现精确的文本渲染，文本编码器需要具备字符意识和与字形（glyphs）对齐的能力。Glyph-ByT5通过使用精心策划的字形-文本配对数据集对字符意识ByT5编码器进行微调来解决这一问题。
 
-如果您不需要链接的具体内容，而是想了解一般性的研究改进，我可以提供一个通用的框架。通常，研究改进可以分为以下几个方面：
+研究者们提出了一种有效的方法，将Glyph-ByT5与SDXL模型集成，创建了Glyph-SDXL模型，用于设计图像生成。这一集成显著提高了文本渲染的准确性，将设计图像基准上的准确率从不足20%提高到近90%。Glyph-SDXL特别擅长于文本段落渲染，能够自动进行多行布局规划，同时保持高拼写准确率。此外，通过使用少量高质量、逼真的图像进行微调，Glyph-SDXL在开放域真实图像中的场景文本渲染能力也得到了显著提升。
 
-1. **理论框架的深化**：相比于之前的研究，新研究可能在理论基础上有所拓展，提出了新的假设或模型，以更好地解释现象或预测结果。
+实验结果表明，Glyph-SDXL在生成富含文本的设计图像方面超越了其他最先进的模型，并且在场景文本图像生成方面也表现出色。作者通过对比实验和用户研究来评估模型性能，并进行了详尽的消融实验来研究方法中各个组成部分的影响。这项工作不仅提高了视觉文本渲染的准确性，还为设计定制文本编码器以应对多样化和具有挑战性的任务提供了新的思路。
 
-2. **方法论的创新**：研究可能采用了新的实验设计、数据分析技术或计算方法，这些方法可能更加精确、高效或能够处理更复杂的数据集。
+## Desigen: A Pipeline for Controllable Design Template Generation
 
-3. **实证结果的丰富**：新研究可能通过更广泛的样本、更长时间的观察或更细致的分析，提供了更加丰富和深入的实证结果，从而验证或反驳了先前的研究结论。
+2024.03.14｜SCUT, Microsoft, CSU
 
-如果您有具体的研究领域或主题，我可以提供更加针对性的总结。如果您需要针对特定论文的总结，请确保提供可访问的内容或文件。
+<u>https://whaohan.github.io/desigen</u>
 
-# Topic: 3D Generation｜
+Desigen是一个由华南理工大学、微软和中南大学的研究者共同开发的自动化设计模板生成管道。该系统能够根据文本提示和布局规范生成具有背景图像和协调布局元素的设计模板。与自然图像不同，背景图像应保留足够的非显著空间以供覆盖布局元素。Desigen通过提出两种简单但有效的技术来增强现有的基于扩散的模型，以实现更强的空间控制，从而在背景生成过程中约束显著性分布并减少所需区域的注意力权重。
 
-## MagicClay: Sculpting Meshes With Generative Neural Fields
+Desigen的背景生成器通过显著性注意约束和注意力减少控制来实现空间控制，而布局生成器则基于Transformer自回归生成器。为了实现背景和布局元素之间更和谐的组合，Desigen提出了一种迭代推理策略，通过多次迭代来调整合成的背景和布局。研究者构建了一个包含超过40k广告横幅的设计数据集来验证他们的方法，并通过定量和定性实验表明，Desigen生成的高质量模板可与人类设计师相媲美。
 
-2024.03.04｜
+Desigen的主要贡献在于它尝试自动化设计模板创建过程，并建立了全面的评估指标。此外，它还构建了一个包含丰富设计元数据的广告横幅数据集。研究者计划未来将更多地结合平面设计原则来指导管道，并考虑更多样化的视觉资产类型，如装饰和字体，以丰富设计模板。
 
-<u>https://amir90.github.io/MagicClay.github.io/</u>
+# Topic: Image Generation｜AR Painting, Sketch｜
 
-MagicClay是一种新颖的3D雕塑工具，它结合了混合网格-有符号距离场（SDF）表示，允许用户通过文本提示选择并修改网格的特定区域，同时保持其他区域不变。这种方法克服了传统神经场表示在艺术创作中缺乏增量控制的问题，同时利用了三角形网格在几何任务中的效率和直观控制优势。MagicClay通过在每一步形状优化中平衡两种表示的一致性和正则化，实现了对网格的局部和顺序编辑，这是首次实现的。
+## ARtVista: Gateway To Empower Anyone Into Artist
 
-相比于以往的研究，MagicClay的改进在于它引入了一种混合表示方法，这种表示方法在保持网格拓扑结构的同时，能够进行大规模的形状变化。通过使用SDF来指导网格的形状优化和拓扑更新，MagicClay能够在保持网格细节的同时，实现复杂的形状变化。此外，MagicClay还采用了自适应网格重建技术，根据SDF的指示动态调整网格的局部拓扑结构，以适应形状的变化。
+2024.03.13｜US-VNU-HCM, VNU-HCM, UD
 
-在实验中，MagicClay展示了其在文本到3D生成任务中的优越性能，与现有的3D生成技术相比，它能够生成更平滑、更高质量的几何形状。此外，MagicClay在处理带有噪声的梯度时表现出更强的鲁棒性，这得益于其混合表示方法。尽管MagicClay目前还不是交互式的，且优化过程需要一定的时间，但其在艺术工作流程中的应用潜力巨大，尤其是在艺术家需要逐步迭代和精确控制最终结果的场景中。未来的工作将探索如何利用图像目标和深度条件扩散模型来提高3D优化的质量和速度。
+<u>https://github.com/htrvu/ARtVista</u>
 
-# Topic: 3D Reconstruction｜
+ARtVista是一个创新系统，它结合了增强现实（AR）和生成性人工智能（AI）技术，旨在帮助用户将抽象概念转化为视觉艺术作品。用户通过语音识别输入想法，系统生成与想法相符的逼真图像，并提供不同绘画风格的草图。用户可以选择传统绘画或数字填色模式来创作画作。ARtVista通过交互式AR界面，让用户无需高级绘画技能也能创作出视觉上吸引人的艺术作品。
 
-## Semantic Human Mesh Reconstruction with Textures
+ARtVista的界面使用Unity平台开发，结合了OpenAI的Whisper模型进行语音识别，以及Stable Diffusion模型进行文本到图像的转换。系统提供了三种不同细节水平的草图，并能将草图转化为用户选择的绘画风格。在一次初步的用户研究中，参与者对ARtVista的可用性给出了积极反馈，同时提出了改进建议，如增强AR绘图体验、提供颜色匹配工具和调整难度级别的灵活性。
 
-2024.03.05｜
+基于用户研究的反馈，ARtVista计划改进设备屏幕的绘图体验，提供更准确的颜色可视化，并考虑为有一定绘画技巧的用户提供特定绘画风格的新模式。未来还将探索使用更强大的Stable Diffusion模型检查点来模仿流行艺术家的风格，并计划引入基于深度学习模型的笔触预测来实现分层绘画模式。研究得到了越南国家科学技术发展基金会（NAFOSTED）和美国国家科学基金会（NSF）的资助。
 
-<u>https://arxiv.org/abs/2403.02561</u>
+## What Sketch Explainability Really Means for Downstream Tasks
 
-由于网络问题，我目前无法解析您提供的链接内容。如果您需要该论文的总结，请确保链接是正确的，并且网络连接稳定。您可以尝试重新发送链接，或者提供论文的主要内容或关键信息，我将基于您提供的信息来进行总结。
+2024.03.14｜University of Surrey, iFlyTek-Surrey Joint Research Centre on Artificial Intelligence
 
-如果您不需要该链接的具体内容，我可以根据您提供的其他信息或类似主题的知识来帮助您。请告诉我您需要了解的具体领域或问题，我会尽力为您提供一个300字的总结，包括改进点。
+<u>https://arxiv.org/abs/2403.09480</u>
 
-# Topic: Motion Generation｜
+本文探讨了素描在可解释性方面的特殊性，强调了人类笔触与传统像素导向研究相比的深远影响。研究不仅解释了网络行为，还揭示了可解释性在多种下游素描相关任务中的真实含义。提出了一种轻量级、便携的可解释性解决方案——一个无缝集成到任何预训练模型的插件，无需重新训练。通过四个应用案例展示了其适应性：高度研究的检索和生成，以及全新的辅助绘图和素描对抗攻击。
 
-## NRDF: Neural Riemannian Distance Fields for Learning Articulated Pose Priors
+研究提出了基于笔触级别的归因图，该归因图在与下游任务链接时采取不同形式。通过解决光栅化固有的不可微性问题，实现了粗笔触级别（SLA）和部分笔触级别（P-SLA）的解释，每种都有其在特定下游任务中的优势。模型的输出与典型的基于照片的可解释性模型中的显著性图有显著不同，它是一个任务驱动的归因图，捕捉改变笔触特征如何影响模型预测。
 
-2024.03.05｜
+本研究的贡献在于探索了素描可解释性，强调了人类绘制素描中笔触的重要性，并展示了可解释性在检索、生成、辅助绘图和对抗攻击等多个素描相关领域的深远影响。解决了光栅化不可微性问题，提供了笔触级别和部分笔触级别的归因。通过这些贡献，研究展示了如何将人类表达与模型预测在素描解释领域中联系起来。
 
-<u>https://virtualhumans.mpi-inf.mpg.de/nrdf</u>
+## SketchINR: A First Look into Sketches as Implicit Neural Representations
 
-本研究提出了一种名为神经黎曼距离场（NRDF）的新方法，用于学习关节运动的合理姿态先验。NRDF通过在高维四元数空间中构建隐式神经距离场，有效地模拟了不同关节形状的姿态。与以往的方法相比，NRDF引入了一种新的采样算法，确保了学习到的距离场具有期望的分布特性，从而提高了学习过程的效率和准确性。此外，NRDF还开发了一种自适应步长的黎曼梯度下降算法，用于将任意姿态映射到学习到的流形上，同时保持了对关节旋转的尊重。
+2024.03.14｜University of Surrey, iFlyTek-Surrey Joint Research Centre on Artificial Intelligence, University of Edinburgh
 
-NRDF在多个下游任务中表现出色，包括姿态生成、基于图像的姿态估计和解决逆运动学问题。与先前的工作如VPoser、Pose-NDF和GAN-S等相比，NRDF在姿态距离度量上展现出更高的性能。NRDF的多样性和实用性不仅限于人类姿态，还能有效地表示手部和动物姿态，这表明了其在不同领域的广泛应用潜力。
+<u>https://arxiv.org/abs/2403.09344</u>
 
-研究的主要贡献包括：提出了一种在黎曼流形上学习NDF的原则性框架；开发了一种理论上可靠的自适应步长黎曼梯度下降算法，加速了将姿态映射到学习流形的过程；提出了一种关键的采样训练数据的方法，对于学习姿态流形至关重要。这些改进使得NRDF在多个任务中都能产生更准确、更多样化且更符合人类感知的姿态。
+本文介绍了SketchINR，这是一种用于矢量草图的隐式神经表示方法。SketchINR通过将变长矢量草图压缩到固定维度的潜在空间中，隐式编码了时间序列和笔画的基本形状。该方法在多个任务上超越了现有表示，包括数据压缩、高保真度表示、并行化解码以及支持人类复现草图的能力。SketchINR提供了一种紧凑的高保真度表示，支持未来对长而复杂草图建模的工作。
 
-# Topic: Audio Generation｜Speech｜
+SketchINR通过学习固定大小的潜在空间和条件隐式函数来生成草图实例的xy坐标。它能够并行预测所有时间和笔画的坐标，比其他学习到的矢量表示（如SketchRNN）快约100倍。此外，SketchINR支持多样化的应用，包括平滑潜在空间插值、草图生成、草图补全以及草图抽象。特别是，它还支持草图抽象，即用不同数量和复杂度的笔画复制草图的本质。
 
-## NaturalSpeech 3: Zero-Shot Speech Synthesis with Factorized Codec and Diffusion Models
+SketchINR作为一种矢量草图的隐式表示，提供了高保真度和紧凑的表示，为草图特定的编解码器开辟了新的可能性。尽管它在表示手绘草图方面表现出色，但仍存在一些局限性，如基于优化的编码和跨类别泛化能力不足。未来的工作可以探索更好的隐式函数工程，以改善收敛速度，并优化生成草图的平滑度。
 
-2024.03.05｜
+# Topic: Image Generation｜Interpolation, Editing, Relighting｜
 
-<u>https://arxiv.org/abs/2403.03100</u>
+## NoiseDiffusion: Correcting Noise for Image Interpolation with Diffusion Models beyond Spherical Linear Interpolation
 
-本研究提出了NaturalSpeech 3，这是一个创新的文本到语音（TTS）系统，旨在通过分解和生成语音的不同子空间来提高语音合成的自然度。NaturalSpeech 3的核心是一个新的神经语音编解码器（FACodec），它利用因子化向量量化（FVQ）将语音波形分解为内容、韵律、音色和声学细节等子空间，并使用这些解耦的表示来重建高质量的语音波形。此外，该系统还提出了一种因子化扩散模型，根据相应的提示生成每个子空间中的属性，从而有效地模拟复杂语音。
+2024.03.13｜USTC, TMLR Group, UTS, Sydney AI Centre
 
-相比于以往的研究，NaturalSpeech 3在多个方面取得了显著改进。首先，它通过因子化设计有效地提高了语音质量、相似度、韵律和可理解性。实验结果表明，NaturalSpeech 3在LibriSpeech测试集上的CMOS评分、Sim-O相似度、平均MCD（Mel-Cepstral Distortion）以及WER（Word Error Rate）上均优于现有的TTS系统。其次，该系统通过扩展到10亿参数和200K小时的训练数据，展示了其可扩展性，进一步证明了其在大规模数据集上的性能提升。
+<u>https://arxiv.org/abs/2403.08840</u>
 
-最后，NaturalSpeech 3还展示了对语音属性的操控能力，允许用户通过选择不同的属性提示来定制语音的特定方面，如持续时间、韵律和音色。这种灵活性为个性化语音合成提供了新的可能性。尽管NaturalSpeech 3在零样本语音合成方面取得了显著进步，但研究者也指出了其局限性，包括属性覆盖范围、数据多样性以及神经语音编解码器的泛化能力等，这些都是未来研究的方向。
+本文介绍了一种名为NoiseDiffusion的新型图像插值方法，旨在解决现有基于扩散模型的图像插值技术在处理自然图像时面临的挑战。扩散模型在图像生成领域展现出巨大潜力，但传统的球面线性插值方法在应用于非由扩散模型生成的自然图像时，常常导致图像质量下降和伪影的产生。这些问题主要源于编码噪声的无效性，即噪声不再遵循预期的分布，如正态分布。
 
-# Topic: LLM｜Code, Math｜
+为了克服这些挑战，NoiseDiffusion通过引入细微的高斯噪声来校正无效噪声，并通过约束来抑制极端值的噪声。该方法在噪声图像空间内进行插值，并将原始图像注入这些噪声图像中，以解决信息丢失的问题。这种方法使得在不产生伪影或信息丢失的情况下，对自然图像进行插值成为可能，从而实现了迄今为止最佳的插值结果。
 
-## Design2Code: How Far Are We From Automating Front-End Engineering?
+实验结果表明，NoiseDiffusion在保持原始图像特征的同时，有效减少了图像伪影，并且在图像质量上超越了直接应用球面线性插值和引入噪声的方法。此外，该方法通过边界控制和补充原始图像信息，有效地应对了噪声水平超出或低于去噪阈值所带来的挑战。尽管NoiseDiffusion相比直接引入噪声的方法增加了处理时间，但其在特征保留方面的优势使其成为一个有价值的研究方向。未来的工作将探索该方法在不同模态和场景中的应用潜力。
 
-2024.03.05｜
+## Eta Inversion: Designing an Optimal Eta Function for Diffusion-based Real Image Editing
 
-<u>https://arxiv.org/abs/2403.03163</u>
+2024.03.14｜IRNC, Furiosa AI
 
-本研究提出了Design2Code任务，旨在探索如何将视觉设计直接转换为代码实现，以自动化前端工程。研究者们构建了一个包含484个多样化真实世界网页的基准测试集，并开发了一系列自动评估指标，以衡量当前多模态大型语言模型（LLMs）在将截图转换为可渲染为给定参考网页的代码实现方面的表现。此外，研究还通过人工评估补充了自动指标。
+<u>https://github.com/furiosa-ai/eta-inversion</u>
 
-相比于以往的研究，本研究在几个方面进行了改进。首先，它使用真实世界的网页作为测试案例，而不是像之前研究那样使用合成生成的网页，这使得测试更加贴近实际应用场景。其次，研究者们开发了一套多模态提示方法，并在GPT-4V和Gemini Pro Vision等模型上展示了它们的有效性。此外，研究还对一个开源的Design2Code-18B模型进行了微调，使其性能与Gemini Pro Vision相当。人工评估和自动指标均显示，GPT-4V在这项任务上的表现优于其他模型。
+该研究聚焦于基于扩散模型的真实图像编辑领域，旨在解决现有方法在保持源图像结构的同时实现与文本提示相符的编辑效果方面的不足。作者提出了一种新颖的扩散反演技术——Eta Inversion，通过设计一个时间区域依赖的η函数，优化DDIM采样过程，以实现更精准的图像编辑。该方法不仅在理论上进行了深入分析，还通过广泛的定量和定性评估，证明了其在真实图像编辑任务上的优越性。
 
-最后，研究者们对开源模型和商业API模型进行了比较，发现经过微调的开源模型Design2Code-18B在某些方面可以与商业模型相媲美，尽管在颜色相似性和布局匹配方面仍有差距。这些发现表明，尽管在自动化前端工程方面取得了显著进展，但仍有改进空间，特别是在处理复杂网页和提高代码生成的准确性方面。
+Eta Inversion方法的核心在于引入了一个时间区域依赖的η函数，该函数在DDIM采样方程中注入最佳的噪声，以平衡编辑程度和源图像相似度。作者首先对η在扩散反演和编辑中的角色进行了理论探索，然后设计了一个能够根据目标提示调整编辑范围的通用扩散反演方法。此外，该方法通过避免对图像背景部分进行编辑，进一步提升了编辑性能。研究的主要贡献包括提出了一个统一的扩散反演和真实图像编辑框架，以及对现有方法的全面基准测试。
 
-## MathScale: Scaling Instruction Tuning for Mathematical Reasoning
+通过一系列实验，包括与多种最新方法的比较，作者展示了Eta Inversion在定量和定性评估方面的先进性能。实验结果表明，该方法不仅在新的基准测试中设定了新的标准，而且在多种图像编辑任务中均显著超越了现有策略。此外，作者还提供了代码，以便社区进一步研究和应用这一方法。总体而言，Eta Inversion为真实图像编辑领域提供了一个强大的工具，能够产生既忠实于文本提示又与源图像结构相似的编辑结果。
 
-2024.03.05｜
+## Holo-Relighting: Controllable Volumetric Portrait Relighting from a Single Image
 
-<u>https://arxiv.org/abs/2403.02884</u>
+2024.03.14｜JHU, Adobe Inc.
 
-本研究提出了MathScale，这是一种利用前沿大型语言模型（如GPT-3.5）创建高质量数学推理数据的简单且可扩展的方法。MathScale通过从种子数学问题中提取主题和知识点，构建概念图，并基于此生成新的数学问题。这种方法在生成数学数据集的规模上表现出有效的可扩展性，成功创建了一个包含两百万数学问答对的数据集（MathScaleQA）。此外，研究者构建了MWPBENCH基准测试，这是一个涵盖K-12、大学和竞赛级别数学问题的全面数学词问题集合，用于全面评估LLMs的数学推理能力。
+<u>https://arxiv.org/abs/2403.09632</u>
 
-MathScale在MWPBENCH上的评估显示，经过MathScaleQA微调的开源LLMs（例如LLaMA-2和Mistral）在数学推理能力上显著提升。与同等规模的最佳模型相比，MathScale-7B在微平均准确率和宏平均准确率上分别提高了42.9%和43.7%。这表明MathScale在生成大规模数学数据集方面具有显著优势，尤其是在处理复杂和多样化的数学问题时。
+本文介绍了一种名为Holo-Relighting的创新方法，它能够从单张肖像照片中合成新的视角和照明效果。Holo-Relighting利用预训练的3D GAN（EG3D）来重建输入肖像的几何和外观，作为一组3D感知特征。该方法设计了一个基于给定照明条件的重照明模块，处理这些特征，并预测一个重照明的3D表示，以三平面形式呈现，可以通过体积渲染渲染到任意视点。此外，Holo-Relighting还考虑了头部姿势作为条件，以实现头部姿势依赖的照明效果。
 
-相比于以往的研究，MathScale的主要改进在于其概念提取和概念图构建的方法。它不仅减少了对原始训练示例的依赖，而且通过模拟人类数学学习的认知机制，提高了生成问题的多样性和复杂性。此外，MathScale在评估框架上的创新，通过统一的评估协议，促进了模型之间的一致和公平比较。这些改进使得MathScale在数学推理任务上取得了最先进的性能。
+Holo-Relighting的核心在于使用一个学习型神经网络进行重照明，该网络能够在不依赖任何物理照明模型的情况下生成复杂的非朗伯照明效果（例如，高光和投下的阴影）。该网络采用金字塔结构，逐步提高其空间分辨率，以匹配三平面生成器Gtri的分辨率。在训练阶段，为了确保从输入图像中提取的GAN特征包含准确的几何信息，作者提出了多视图正则化和肖像着色转移技术，以改善训练数据的质量。
+
+通过大量的定量和定性实验，Holo-Relighting展示了其在重照明质量、逼真度、3D一致性和可控性方面的优越性，与现有的最先进方法相比，能够实现更好的效果。作者总结了他们的贡献：提出了一种新颖的可控体积重照明方法，能够以前所未有的真实感和视角一致性渲染自由视角的重照明肖像；开发了一个能够渲染复杂阴影效果的重照明模块，无需物理约束；提出了两种数据渲染技术，以更有效地利用光舞台捕获的数据来训练体积重照明系统。
+
+# Topic: Video Generation｜Editing, Ego-to-exo｜
+
+## Video Editing via Factorized Diffusion Distillation
+
+2024.03.14｜Meta AI
+
+<u>https://arxiv.org/abs/2403.09334</u>
+
+本文介绍了一种名为Emu Video Edit (EVE)的新型视频编辑模型，该模型在无需任何监督视频编辑数据的情况下，通过结合图像编辑适配器和视频生成适配器，实现了视频编辑的新突破。EVE模型通过一种新颖的无监督蒸馏过程——Factorized Diffusion Distillation (FDD)，将知识从多个教师模型中蒸馏到学生模型中，从而实现了对视频帧的精确编辑和帧间时间一致性的保证。
+
+EVE模型的核心是将视频编辑任务分解为两个主要能力：精确编辑每一帧图像和确保编辑后的帧间时间一致性。研究者首先在相同的文本到图像模型上分别训练图像编辑适配器和视频生成适配器，然后将这两个适配器结合在一起，通过FDD过程进行对齐。FDD利用Score Distillation Sampling和对抗性损失来生成编辑后的视频，并以此为基础进行教师模型的知识蒸馏。
+
+EVE模型在Text Guided Video Editing (TGVE)基准测试中取得了最先进的结果，并在扩展的TGVE+基准测试中展示了其在添加、移除和改变视频中对象纹理等额外编辑任务上的能力。此外，研究者还探讨了FDD在对齐其他适配器组合方面的潜力，验证了该方法在实现个性化图像编辑和风格化图像编辑方面的有效性。尽管存在一些限制，如模型性能受限于教师模型的能力，但EVE模型为未来无监督视频编辑领域的发展提供了新的可能性。
+
+## Intention-driven Ego-to-Exo Video Generation
+
+2024.03.14｜USTC, Alibaba
+
+<u>https://arxiv.org/abs/2403.09194</u>
+
+本文提出了一种名为Intention-Driven Ego-to-Exo视频生成框架（IDE），旨在根据第一人称视角（egocentric）视频生成对应的第三人称视角（exocentric）视频。这项技术在增强现实/虚拟现实（AR/VR）和具身人工智能（embodied AI）领域具有重要应用价值。传统的视频生成方法依赖于帧间的时空一致性假设，但在ego-to-exo场景中，由于视角的剧烈变化，这一假设往往无法满足。IDE框架通过利用人类动作意图（包括人体运动和动作描述）作为视角独立的表示，来指导视频生成，从而保持内容和运动的一致性。
+
+IDE框架首先通过多视角立体匹配估计第一人称视角的头部轨迹，然后引入跨视角特征感知模块（CFPM），建立ego和exo视角之间的对应关系，并引导轨迹转换模块（TTM）从头部轨迹推断出人体的全身运动。同时，提出了动作描述单元（ADU），将动作语义映射到与exo图像一致的特征空间中。最终，在扩散模型的反向过程中，推断出的人体运动和高层次动作描述共同指导生成相应的exo运动和交互内容（例如光流和遮挡图），并通过变形处理生成对应的exo视频。
+
+在包含丰富exo-ego视频对的相关数据集上进行的广泛实验表明，IDE在主观和客观评估方面均优于现有的最先进模型，证明了其在ego-to-exo视频生成方面的有效性。此外，该研究还进行了消融研究，验证了框架中各个模块的重要性，并探讨了不同运动信息融合方式对模型性能的影响。尽管在处理头部运动幅度较小的情况时存在局限性，但IDE框架为理解和可视化不同视角下相同场景提供了新的视角，对AR/VR技术的发展具有重要意义。
+
+# Topic: 3D Generation｜Text-to-3D, Image-to-3D｜
+
+## Sculpt3D: Multi-View Consistent Text-to-3D Generation with Sparse 3D Prior
+
+2024.03.14｜NTU, InfocommResearch A*STAR, Frontier AI Research A*STAR
+
+<u>https://stellarcheng.github.io/Sculpt3D/</u>
+
+本文介绍了一种名为Sculpt3D的新型框架，旨在解决现有文本到3D生成模型中存在的多视角一致性和形状准确性问题。现有的方法主要通过重新训练扩散模型来平衡2D生成质量和3D一致性，但这种方法往往会导致训练成本高昂且效果有限。Sculpt3D通过引入从检索到的参考对象中显式注入的3D先验知识，无需重新训练2D扩散模型，从而在保持2D模型生成质量的同时，确保了3D对象的多视角一致性。
+
+Sculpt3D框架通过稀疏射线采样方法和关键点监督来保证高质量和多样化的3D几何结构。此外，为了确保不同视角的准确外观，该框架进一步调节2D扩散模型的输出，使其符合模板视图的正确模式，而不改变生成对象的风格。这种设计有效地利用了参考对象的3D信息来生成3D对象，同时保留了2D扩散模型的生成质量。实验表明，Sculpt3D在大幅提高多视角一致性的同时，保持了生成的保真度和多样性。
+
+通过与多个基线模型的比较，Sculpt3D在生成质量和多视角一致性方面均展现出显著优势。定量评估显示，Sculpt3D在多视角一致性率上取得了显著提升，同时在质量和对齐度上也超过了基线模型。此外，消融研究进一步证实了Sculpt3D方法的泛化能力。尽管Sculpt3D表现出了有希望的性能，但研究者也指出了一些限制，例如在初始检索到的形状超出3D数据集先验的情况下，正确生成可能会变得困难。
+
+## 3D-SceneDreamer: Text-Driven 3D-Consistent Scene Generation
+
+2024.03.14｜Zhejiang University, JilinU, ISCAS
+
+<u>https://arxiv.org/abs/2403.09439</u>
+
+本文介绍了一种名为3D-SceneDreamer的新型框架，旨在通过文本驱动生成一致性的3D场景。该方法通过迭代使用现有的生成模型来执行图像变形和修复，以生成3D场景。然而，现有方法依赖于现有模型的输出，导致在几何和外观上的误差累积，限制了模型在多种场景（如户外和非真实场景）中的应用。为了解决这一限制，3D-SceneDreamer通过查询和聚合全局3D信息来生成性地细化新生成的局部视图，并逐步生成3D场景。具体来说，该框架采用了基于三平面特征的NeRF作为统一的3D场景表示，以约束全局3D一致性，并提出了一个生成性细化网络，通过利用2D扩散模型的自然图像先验以及当前场景的全局3D信息来合成更高质量的新内容。
+
+3D-SceneDreamer的核心在于使用基于三平面特征的神经辐射场（NeRF）作为统一的3D表示，而不是传统的3D网格。这种方法有利于一般场景的生成，尤其是户外场景，并支持使用任意6自由度（6-DOF）摄像机轨迹进行导航。此外，该框架将场景生成过程建模为对NeRF表示的逐步优化，同时采用文本引导和场景适应的生成性新视图合成来细化NeRF优化。该方法的技术贡献包括：提供了一个统一的文本驱动一致性3D场景生成解决方案，支持室内和室外场景以及任意6-DOF摄像机轨迹的导航；提出了一种新的生成性细化模型，该模型明确注入3D信息以细化由新视图合成生成的粗略视图，并将新视图纳入以细化NeRF优化。
+
+通过大量实验，3D-SceneDreamer在视觉质量和3D一致性方面显著优于现有的文本驱动3D场景生成方法。实验结果表明，该方法能够生成具有更好视觉质量和3D一致性的室内、室外和非真实风格的场景。此外，该方法还能够生成平滑且一致的长视频，这些视频与输入文本描述的场景一致，无需大规模的训练数据。总体而言，3D-SceneDreamer展示了其在生成高质量3D场景方面的潜力，为元宇宙应用中3D创作工具的发展提供了新的方向。
+
+## Make-Your-3D: Fast and Consistent Subject-Driven 3D Content Generation
+
+2024.03.14｜THU
+
+<u>https://liuff19.github.io/Make-Your-3D</u>
+
+本文介绍了一种名为Make-Your-3D的新型3D内容生成方法，该方法能够在短短5分钟内，通过单张图片和文本描述，个性化生成高保真度和一致性的三维内容。研究团队来自清华大学，他们提出了一个创新的3D定制方法，通过协调多视角扩散模型和特定身份的2D生成模型的分布，与所需3D主题的分布相一致，从而实现这一目标。
+
+Make-Your-3D方法的核心是设计了一个共同进化框架，以减少分布的差异。在这个框架中，两个模型通过身份意识优化和主题优先优化相互学习。具体来说，首先通过多视角扩散模型将主题图像提升到3D空间，并通过身份增强过程优化2D个性化模型。然后，将原始的2D个性化模型应用于带有修改文本描述的主题多视图，获得更多样化的图像。最后，通过这些多样化的图像优化多视角扩散模型，将主题特定的先验知识融入到模型中。
+
+通过在DreamBooth3D数据集和不同风格的开放词汇野生图像上的广泛实验，证明了该方法能够产生高质量、一致性强、特定于主题的3D内容，并且与输入文本提示中的情境化高度一致。与DreamBooth3D相比，Make-Your-3D在质量、分辨率和一致性方面都有所超越，同时在效率上实现了36倍的速度提升。该方法仅需要单个野生图像作为输入，消除了对同一主题的3-6张精心挑选图像的需求，展示了在广告、娱乐、时尚等多个领域应用的巨大潜力。
+
+## Hyper-3DG: Text-to-3D Gaussian Generation via Hypergraph
+
+2024.03.14｜Space AI, Tsinghua University, USTC, Harbin Institute of Technology
+
+<u>https://github.com/yjhboy/Hyper3DG</u>
+
+本文介绍了一种名为“Hyper-3DG”的文本到3D高斯生成方法，旨在通过超图（Hypergraph）技术捕捉3D对象内部复杂的高阶相关性。Hyper-3DG框架由一个主流程和一个关键模块“Geometry and Texture Hypergraph Refiner (HGRefiner)”组成，后者通过Patch-3DGS Hypergraph Learning对3D高斯表示进行细化，同时处理显式属性和潜在视觉特征。该方法在保持生成质量的同时，不增加计算开销。
+
+Hyper-3DG通过预训练的3D生成器和2D扩散模型初始化3D对象，然后利用HGRefiner模块在补丁级别上细化几何和纹理。该模块通过超图学习建立物理空间和潜在视觉空间中的高阶相关性，从而提高局部语义视觉理解并保持渲染速度。实验表明，与现有技术相比，Hyper-3DG在生成细节丰富、视图一致性强的3D对象方面具有显著优势。
+
+Hyper-3DG方法在3D生成领域取得了突破，提高了生成3D资产的质量和多样性，并对虚拟现实和游戏产业产生了深远影响。未来的工作将集中在生成更复杂的3D对象和场景上，通过提高利用预训练的2D和3D生成模型的能力来实现这一目标。此外，研究还指出了Hyper-3DG在处理复杂场景描述或逻辑结构时可能存在的局限性，并强调了在应用中需要考虑的伦理问题。
+
+## Envision3D: One Image to 3D with Anchor Views Interpolation
+
+2024.03.13｜PKU, NUS, Rabbitpre
+
+<u>https://github.com/PKU-YuanGroup/Envision3D</u>
+
+Envision3D是一种新颖的方法，可以从单个图像高效生成高质量的3D内容。该方法通过级联扩散框架解决了从多视图图像中提取3D内容的挑战，这些图像由扩散模型生成。Envision3D将密集视图生成任务分解为两个可管理的阶段：锚视图生成和锚视图插值。在第一阶段，利用图像-法线对训练图像扩散模型，以生成全局一致的锚视图。第二阶段，使用经过微调的视频扩散模型对锚视图进行插值，以生成额外的密集视图。这种方法能够提供全面的3D信息，并通过粗糙到精细的采样策略，从生成的密集图像中稳健地提取纹理网格。
+
+Envision3D在锚视图生成阶段引入了细粒度的图像-法线对，加速了模型收敛，并促进了语义和几何上一致的锚视图的生成。在锚视图插值阶段，提出了对视频扩散模型进行微调的方法，该模型能够有效处理多个视图，并且相比图像扩散模型包含丰富的3D先验知识。此外，为了提高整体生成质量，引入了一种粗糙到精细的采样策略，用于重建算法，从而在全局范围内建立基本的纹理和几何，然后密集采样插值视图以进行细节细化。
+
+通过在GSO数据集和各种收集的图像上的广泛实验，Envision3D展示了其在纹理和几何质量方面生成高质量3D内容的能力，超越了以往的图像到3D基线方法。该方法的主要贡献包括提出了一种新颖的级联扩散框架，能够生成32个一致的密集视图；通过使用图像-法线对和微调视频扩散模型来提高训练效率；以及提出了一种新颖的粗糙到精细的采样策略，用于稳健地提取3D内容。
+
+# Topic: 3D Representation｜3D-GS｜
+
+## Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting
+
+2024.03.14｜Korea Uni
+
+<u>https://ku-cvlab.github.io/RAIN-GS</u>
+
+本文探讨了3D高斯溅射（3DGS）在实时新视图合成和3D重建中的应用。3DGS通过使用显式的3D高斯模型，与传统的神经辐射场（NeRF）相比，能够实现更高效的实时渲染。然而，3DGS的性能在很大程度上依赖于从结构光运动（SfM）方法中获得的准确初始化。当使用随机初始化的点云进行训练时，3DGS往往无法保持其生成高质量图像的能力，通常会导致4-5 dB的PSNR性能下降。特别是在对称场景、具有光泽属性和纹理较少区域的场景，以及可用视图受限的情况下，SfM技术难以收敛，限制了3DGS的应用。
+
+为了解决这一问题，作者提出了一种新的优化策略，名为RAIN-GS（Relaxing Accurate INitialization Constraint for 3D Gaussian Splatting），它成功地从随机初始化的点云中训练3D高斯。该策略包括两个关键部分：1) 一种新的初始化方法，即使用稀疏大方差（SLV）的高斯；2) 在渲染过程中使用渐进式高斯低通滤波。通过定量和定性比较，作者展示了该策略在所有设置中显著提高了性能，有效放宽了对SfM准确初始化点云的要求。
+
+实验结果表明，RAIN-GS策略在标准数据集上取得了显著的性能提升，无需任何正则化、训练或外部模型，就能从随机初始化的点云中获得高质量的结果。此外，该策略在稀疏视图设置下也表现出色，证明了其在SfM难以收敛的场景中的潜力。总体而言，RAIN-GS为3DGS在无法获得准确点云的场景中的应用开辟了新的可能性。
+
+# Topic: Code Generation｜Web Screenshots, HTML｜
+
+## Unlocking the conversion of Web Screenshots into HTML Code with the WebSight Dataset
+
+2024.03.14｜Hugging Face
+
+<u>https://arxiv.org/abs/2403.09029</u>
+
+本技术报告介绍了WebSight数据集，这是一个由200万对HTML代码及其对应截图组成的合成数据集。该数据集旨在解决视觉语言模型（VLMs）在网页开发中的应用挑战，即如何将网页截图转换为功能性的HTML代码。报告指出，尽管VLMs在多种任务上取得了进展，但将截图转换为HTML的任务尚未得到充分探索，主要原因是缺乏高质量的数据集。为了填补这一空白，研究者开发了WebSight，并开源以促进该领域的研究。
+
+WebSight数据集的构建采用了两种策略：利用现有的网页和HTML代码，以及使用大型语言模型（LLMs）合成HTML代码。研究者选择了后者，因为它提供了更高的控制度和更清洁、简洁的数据。通过微调一个基础VLM，开发了Sightseer模型，该模型在将网页截图转换为功能性HTML代码方面表现出色，并且能够适应未训练的场景，如将手绘草图转换为HTML代码。
+
+Sightseer模型在处理简单网站设计时能够准确保留文本，并且在某些情况下能够超越训练数据集，处理外观差异较大的网站。然而，模型在处理复杂布局、大量文本或与训练数据显著不同的设计时存在挑战。报告还提到，尽管模型生成的网站在视觉上更具吸引力，但有时会出现传统CSS中未观察到的错误，这可能是由于Tailwind CSS框架在预训练数据中出现频率较低所致。通过开源WebSight数据集，研究者希望推动自动化网页截图到HTML代码转换的进一步创新和研究。
+
+# Topic: Image/Video/3D｜State Space Models(SSMs)｜Image Recognition, Video Understanding, Gesture Synthesis｜
+
+## LocalMamba: Visual State Space Model with Windowed Selective Scan
+
+2024.03.14｜USYD, SenseTime, USTC
+
+<u>https://github.com/hunto/LocalMamba</u>
+
+LocalMamba是一种新型的视觉状态空间模型（SSM），旨在提高模型在处理图像时捕捉局部依赖性的能力。传统的Vision Mamba（ViM）方法通过将图像展平为一维序列来处理，但这种方法忽略了图像中局部二维依赖性的保留，导致相邻图像标记之间的距离变长，影响了模型对空间关系的准确解释。为了解决这一挑战，LocalMamba提出了一种局部扫描策略，通过将图像分割成不同的窗口来有效捕获局部依赖性，同时保持全局视角。
+
+LocalMamba的核心在于引入了一种新颖的局部扫描策略，该策略通过将图像划分为多个独立的小窗口，并在每个窗口内部进行扫描，从而增强了模型捕捉局部细节的能力。此外，考虑到不同网络层对扫描模式的不同偏好，LocalMamba提出了一种动态方法，独立搜索每一层的最优扫描选择，显著提高了性能。通过在平面和层次模型上的广泛实验，LocalMamba在图像识别方面表现出色，例如在ImageNet上的准确率显著超过了Vim-Ti。
+
+实验结果表明，LocalMamba在图像分类、目标检测和语义分割等任务上均取得了显著的性能提升。例如，在ImageNet分类任务中，LocalVim-T模型在保持相似计算复杂度的情况下，准确率超过了Vim-Ti。此外，LocalMamba还通过搜索最优扫描方向，进一步优化了模型性能。这些成果不仅证明了LocalMamba在视觉任务中的有效性，也为未来的研究开辟了新的方向，即探索更高效和有效的状态空间建模方法。
+
+## Video Mamba Suite: State Space Model as a Versatile Alternative for Video Understanding
+
+2024.03.14｜NJU, OpenGVLab, Fudan, Zhejiang University
+
+<u>https://github.com/OpenGVLab/video-mamba-suite</u>
+
+本文介绍了一种名为Mamba的状态空间模型（SSM），旨在作为视频理解领域中的一个多功能替代方案。Mamba模型通过其在长序列建模中的成功，展现出在视频建模中的巨大潜力。研究者们通过全面的实验，探讨了Mamba在视频理解任务中的不同角色，包括时间建模、多模态交互、视频时间适配器和时空建模。这些实验涵盖了12个视频理解任务，并基于13个主要数据集进行。
+
+视频Mamba套件由14个模型/模块组成，这些模型/模块被评估在多个视频理解任务上的性能。实验结果显示，Mamba在处理仅视频和视频-语言任务上都表现出色，并且在效率-性能权衡方面展现出了良好的前景。特别是在长视频的计算效率方面，Mamba相比传统的Transformer模型具有明显优势，这为视频理解领域提供了新的研究方向。
+
+研究者们希望这项工作能为未来的视频理解研究提供有价值的数据点和见解。Mamba模型的高效性和适用性为视频分析任务提供了新的工具，同时也为计算机视觉领域中更复杂的多模态视频理解挑战开辟了新的道路。未来的工作可能会进一步探索Mamba的适应性，并将其应用扩展到更广泛的视频相关任务中。
+
+## MambaTalk: Efficient Holistic Gesture Synthesis with Selective State Space Models
+
+2024.03.14｜Tsinghua Shenzhen Int Grad Sch, THU
+
+<u>https://arxiv.org/abs/2403.09471</u>
+
+本文探讨了手势合成在人机交互中的重要性，特别是在电影、机器人、虚拟现实等领域的应用。尽管最近的技术进步通过使用扩散模型和注意力机制来改善手势合成，但这些技术由于高计算复杂性，生成长且多样化的序列且低延迟仍然是一个挑战。为了解决这一问题，作者研究了状态空间模型（SSMs）的潜力，并通过两阶段建模策略和离散运动先验来提高手势质量，引入了MambaTalk，通过多模态集成增强手势多样性和节奏。
+
+MambaTalk框架利用基础的Mamba模块，通过选择性状态空间模型来合成整体手势。该方法通过VQVAE导出的离散运动先验来解决直接应用选择性扫描机制导致的手势抖动问题，并通过多个Mamba模块细化不同身体部位的潜在空间表示，以实现动态交互和迭代细化。主要贡献包括首次探索选择性扫描机制在手势合成中的应用，结合VQVAE实现低延迟的整体手势合成，以及提出了一个创新的框架，通过多个Mamba模块增强潜在空间表示的质量，从而更精细地调整全身各个部位的运动模式。
+
+通过在BEATX标准数据集上的广泛实验，MambaTalk在多个评估指标上达到或超过了现有最先进模型的性能。用户研究和定性分析表明，MambaTalk生成的手势在自然性、适当性和同步性方面优于其他方法。此外，MambaTalk在训练速度上也显示出优越性，与其他方法相比，每个时期的训练时间大幅减少，表明了其在实际应用中的潜力。尽管当前方法在不同身体部位的动画制作中引入了一些延迟，但未来研究有望开发出能够捕捉不同身体部位复杂变形和运动模式的统一模型，以降低计算开销并提高实时性能。
 

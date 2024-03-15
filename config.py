@@ -1,2 +1,7 @@
 clash_port=8466
+clash_address='127.0.0.1'
 opai_key="sk-T4p4PNbNOBuVBxXpwt2Hr67YtPbMVH0xCFDDZ5ieDSbtfr7i"
+kimi_auth="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwOTg3OTc2OSwiaWF0IjoxNzA5ODc4ODY5LCJqdGkiOiJjbmxhc2w4bnNtbWg4M251ZG1sMCIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.yAALow8wbUP_wrsgh-uRmiuovCosjbVvagq9BRLnjP1qPp3hEl79lsuYw3xprE6sl-PNPHsFvghoCJRgG89LSw"
+task={'summary':1,'mechanism':1,'title_datetime_url':1,'download_paper':1}
+baidu_appid='20210130000686180'
+baidu_appkey='V2BqS7Wrnc7C9gHkl7wK'

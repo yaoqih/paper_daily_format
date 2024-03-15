@@ -27,6 +27,16 @@ for paper in mechanism_check:
         paper_mechnism[paper.split('\n')[0]]=mechanism_str[:-2]
     
 with open('result.md','w',encoding='utf-8') as f:
+    title_summary=''
+    for topic in topics:
+        for Paper in topics[topic]:
+            if not task_content[Paper]['title_datetime_url']:
+                title,publish_datetime,Project_Page='','',''
+            else:
+                title,publish_datetime,Project_Page=task_content[Paper]['title_datetime_url']
+            title_summary+=title+'\n'
+            title_summary+=task_content[Paper]['translate_title']+'\n'
+    f.write(title_summary)
     for topic in topics:
         f.write('# Topic: '+topic+'｜\n\n')
         for Paper in topics[topic]:

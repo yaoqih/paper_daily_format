@@ -1,47 +1,102 @@
-Doubly Abductive Counterfactual Inference for Text-based Image Editing
-Fudan University:Fudan
-Nanyang Technological University:NTU
-Hefei University of Technology:HFUT
+DialogGen: Multi-modal Interactive Dialogue System for Multi-turn Text-to-Image Generation
+Chinese University of Hong Kong:CUHK
+Tencent Hunyuan:Tencent Hunyuan
+Sun Yat-sen University Shenzhen Campus:SYSU
 --------------------------------------------------------------------------------
-Tuning-Free Noise Rectification for High Fidelity Image-to-Video Generation
-Alimama Tech:Alibaba Group
-Beijing:null
+StreamMultiDiffusion: Real-Time Interactive Generation with Region-Based Semantic Control
+Seoul National University:SNU
+ASRI, Department of ECE:ASRI
+Interdisciplinary Program in Artificial Intelligence:Interdisciplinary Program in AI
+SNU-LG AI Research Center:SNU-LG AI Research Center
 --------------------------------------------------------------------------------
-MagicClay: Sculpting Meshes With Generative Neural Fields
-Tel Aviv University:TAU
-Adobe Research:Adobe Research
-Université de Montréal:UdeM
---------------------------------------------------------------------------------
-Semantic Human Mesh Reconstruction with Textures
-Nanjing University:NJU
-Texas A&M University:TAMU
---------------------------------------------------------------------------------
-NRDF: Neural Riemannian Distance Fields for Learning Articulated Pose Priors
-University of Tu¨bingen:UT
-Tübingen AI Center:TAC
-Max Planck Institute for Informatics:MPI
-Imperial College London:ICL
---------------------------------------------------------------------------------
-NaturalSpeech 3: Zero-Shot Speech Synthesis with Factorized Codec and Diffusion Models
-University of Science and Technology of China:USTC
-The Chinese University of Hong Kong, Shenzhen:CUHK Shenzhen
-Zhejiang University:ZJU
-The University of Tokyo:UTokyo
+Glyph-ByT5: A Customized Text Encoder for Accurate Visual Text Rendering
+Microsoft Research Asia:MSRA
+Tsinghua University:THU
 Peking University:PKU
-Microsoft Research Asia & Microsoft Azure Speech:Microsoft Research Asia & Microsoft Azure Speech
+The Australian National University:ANU
 --------------------------------------------------------------------------------
-Design2Code: How Far Are We From Automating Front-End Engineering?
-Stanford University:SU
-Georgia Tech:GT
+Desigen: A Pipeline for Controllable Design Template Generation
+South China University of Technology:SCUT
 Microsoft:Microsoft
-Google DeepMind:Google DeepMind
+Central South University:CSU
 --------------------------------------------------------------------------------
-MathScale: Scaling Instruction Tuning for Mathematical Reasoning
-Chinese University of Hong Kong, Shenzhen, China:CUHK
-Microsoft Research Asia, Beijing, China:MSRA
-Shenzhen Research Institute of Big Data, Shenzhen, China:SRIBD
+ARtVista: Gateway To Empower Anyone Into Artist
+University of Science, VNU-HCM:US-VNU-HCM
+Vietnam National University, Ho Chi Minh City:VNU-HCM
+Department of Computer Science, University of Dayton:UD
 --------------------------------------------------------------------------------
-AtomoVideo: High Fidelity Image-to-Video Generation
-AlimamaTech,AlibabaGroup:AlimamaTech
-AlibabaGroup:AG
+What Sketch Explainability Really Means for Downstream Tasks
+University of Surrey:University of Surrey
+iFlyTek-Surrey Joint Research Centre on Artificial Intelligence:iFlyTek-Surrey Joint Research Centre on Artificial Intelligence
+--------------------------------------------------------------------------------
+SketchINR: A First Look into Sketches as Implicit Neural Representations
+University of Surrey:University of Surrey
+iFlyTek-Surrey Joint Research Centre on Artificial Intelligence:iFlyTek-Surrey Joint Research Centre on Artificial Intelligence
+University of Edinburgh:University of Edinburgh
+--------------------------------------------------------------------------------
+NoiseDiffusion: Correcting Noise for Image Interpolation with Diffusion Models beyond Spherical Linear Interpolation
+University of Science and Technology of China:USTC
+TMLR Group, Hong Kong Baptist University:TMLR Group
+University of Technology Sydney:UTS
+Sydney AI Centre, The University of Sydney:Sydney AI Centre
+--------------------------------------------------------------------------------
+Eta Inversion: Designing an Optimal Eta Function for Diffusion-based Real Image Editing
+Institute of Research-Naming Convention:IRNC
+Furiosa AI:Furiosa AI
+--------------------------------------------------------------------------------
+Holo-Relighting: Controllable Volumetric Portrait Relighting from a Single Image
+Johns Hopkins University:JHU
+Adobe Inc.:Adobe Inc.
+--------------------------------------------------------------------------------
+Video Editing via Factorized Diffusion Distillation
+Meta AI:Meta AI
+--------------------------------------------------------------------------------
+Intention-driven Ego-to-Exo Video Generation
+University of Science and Technology of China:USTC
+Alibaba Group:Alibaba
+--------------------------------------------------------------------------------
+Sculpt3D: Multi-View Consistent Text-to-3D Generation with Sparse 3D Prior
+Nanyang Technological University:NTU
+Institute for Infocomm Research A*STAR:InfocommResearch A*STAR
+Centre for Frontier AI Research A*STAR:Frontier AI Research A*STAR
+--------------------------------------------------------------------------------
+3D-SceneDreamer: Text-Driven 3D-Consistent Scene Generation
+Zhejiang University:Zhejiang University
+Jilin University:JilinU
+Institute of Software, Chinese Academy of Sciences:ISCAS
+--------------------------------------------------------------------------------
+Make-Your-3D: Fast and Consistent Subject-Driven 3D Content Generation
+Tsinghua University:THU
+--------------------------------------------------------------------------------
+Hyper-3DG: Text-to-3D Gaussian Generation via Hypergraph
+Space AI:Space AI
+School of Software, Tsinghua University:Tsinghua University
+School of Information Science and Technology, University of Science and Technology of China:USTC
+Harbin Institute of Technology:Harbin Institute of Technology
+--------------------------------------------------------------------------------
+Envision3D: One Image to 3D with Anchor Views Interpolation
+Peking University:PKU
+National University of Singapore:NUS
+Rabbitpre:Rabbitpre
+--------------------------------------------------------------------------------
+Relaxing Accurate Initialization Constraint for 3D Gaussian Splatting
+Korea University:Korea Uni
+--------------------------------------------------------------------------------
+Unlocking the conversion of Web Screenshots into HTML Code with the WebSight Dataset
+<br>Hugging Face:Hugging Face
+--------------------------------------------------------------------------------
+LocalMamba: Visual State Space Model with Windowed Selective Scan
+The University of Sydney:USYD
+SenseTime Research:SenseTime
+University of Science and Technology of China:USTC
+--------------------------------------------------------------------------------
+Video Mamba Suite: State Space Model as a Versatile Alternative for Video Understanding
+Nanjing University:NJU
+OpenGVLab, Shanghai AI Laboratory:OpenGVLab
+Fudan University:Fudan
+Zhejiang University:Zhejiang University
+--------------------------------------------------------------------------------
+MambaTalk: Efficient Holistic Gesture Synthesis with Selective State Space Models
+Tsinghua Shenzhen International Graduate School:Tsinghua Shenzhen Int Grad Sch
+Tsinghua University:THU
 --------------------------------------------------------------------------------

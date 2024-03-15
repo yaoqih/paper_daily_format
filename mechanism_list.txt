@@ -56,3 +56,180 @@ National University of Singapore:NUS
 Sea AI Lab:Sea AI Lab
 Skywork AI:Skywork AI
 Xi'an Jiaotong University:XJTU
+Individual Researcher:IR
+Not Specified:NS
+UNC Chapel Hill:UNC
+4202 School:4202
+VC.sc:VC.sc
+Technion–Israel Institute of Technology:Technion
+StabilityAI:StabilityAI
+University of Science and Technology of China:USTC
+ByteDance Inc.:ByteDance
+Alibaba Group:Alibaba
+Pengcheng Laboratory:PCL
+DreamBooth:DreamBooth
+ARC Lab:Tencent PCG
+The Chinese University of Hong Kong:CUHK
+Institute for Infocomm Research(I2R) & Centre for Frontier AI Research(CFAR), A*STAR:CFAR
+Google Deepmind:Google Deepmind
+Amsterdam:Amsterdam
+Skolkovo Institute of Science and Technology:SkolTech
+King’s College London:King’s College
+Yandex:Yandex
+AIRI:AIRI
+Nanchang Hangkong University:NCHU
+Cardiff University:Cardiff
+Xiamen University:XMU
+Ministry of Education of China:MOE-China
+RealityEdge:RealityEdge
+ZhejiangLab:ZhejiangLab
+UniversityofMacau:UniversityofMacau
+InstituteofCollaborativeInnovation:InstituteofCollaborativeInnovation
+Texas A&M University:Texas A&M University
+NationalUniversityofSingapore:NationalUniversityofSingapore
+University of Michigan:UM
+Michigan State University:MSU
+The University of Sydney:USYD
+SenseTime Research:SenseTime
+Zhejiang University:Zhejiang University
+Vector Institute:VI
+York University:YU
+Carnegie Mellon University:CMU
+Microsoft Research Asia:MSRA
+Southern University of Science and Technology:SUSTech
+RIKEN and the University of Tokyo:RIKEN_UTokyo
+Tencent Youtu Lab:Tencent Youtu Lab
+Key Laboratory of Multimedia Trusted Perception and Efficient Computing, Ministry of Education of China, Xiamen University:Xiamen University
+Xi’an University of Science and Technology:Xi’an UST
+Xi’an Jiaotong University:Xi’an Jiaotong U
+National Natural Science Foundation of China:National NSF China
+ShaanxiProvince Construction:Shaanxi Prov Construction
+Shaanxi Education Department:Shaanxi Edu Dept
+ReLERLab:ReLERLab
+Australian Artificial Intelligence Institute:AAII
+College of Computer Science and Technology, University of Technology Sydney:UTS
+McGill University:McGill
+Chinese Academy of Sciences, Shanghai Institute of Microsystem and Information Technology:CAS, SIMIT
+University of Wisconsin-Madison:UWM
+OpenGVLab:OGL
+Shanghai AI Laboratory:SAIL
+Shenzhen Institute of Advanced Technology, Chinese Academy of Sciences:SIAT-CAS
+University of Chinese Academy of Sciences:UCAS
+State Key Laboratory for Novel Software Technology, Nanjing University:SKL-NJU
+Virtual Human Group:VHG, Netease Fuxi AI Lab
+raM:raM
+SyncNet Model:SyncNet Model
+Snow Crash:Snow Crash
+GitHub:GitHub
+University of Central Florida:UCF
+University of Maryland:UMD
+School of Computer Science and Engineering, Beihang University:BUAA
+State Key Laboratory of Complex & Critical Software Environment, Beihang University:BUAA
+Institute of Semiconductors, Chinese Academy of Sciences:Chinese Academy of Sciences
+School of Information and Communication Technology, Griffith University:Griffith University
+RIKEN AIP:RIKEN AIP
+The University of Tokyo:The University of Tokyo
+Max Planck Institute for Informatics:MPI
+MBZUAI:MBZUAI
+Beijing Institute of Technology:BIT
+China:CHN
+Korea Electronics Technology Institute:KETI
+University of Birmingham:UB
+Nanjing University of Science and Technology:NJUST
+Institute for Bioinformatics and Medical Informatics, Tübingen University:Tübingen University
+Department of Computer Science and Campus Institute Data Science (CIDAS), Göttingen University:Göttingen University
+Shirley Ryan AbilityLab:Shirley Ryan AbilityLab
+Department of Physical Medicine and Rehabilitation, Northwestern University:Northwestern University
+Department of Neuroscience, Baylor College of Medicine:Baylor College of Medicine
+Center for Neuroscience and Artificial Intelligence, Baylor College of Medicine:Baylor College of Medicine
+The University of Hong Kong:HKU
+University of Alberta:U of A
+Huawei Cloud Computing Technologies Co., Ltd:Huawei Cloud Computing Technologies Co., Ltd
+Xiaohongshu Inc.:Xiaohongshu Inc.
+Shenyang Institute of Automation Chinese Academy of Sciences:SIACAS
+University of Surrey:University of Surrey
+iFlyTek-Surrey Joint Research Centre on Artificial Intelligence:iFlyTek-Surrey Joint Research Centre on Artificial Intelligence
+East China Normal University:ECNU
+Shanghai Institute of AI for Education:Shanghai AI Edu
+Fuxi AI Lab:NetEase Inc.
+Korea Advanced Institute of Science and Technology:KAIST
+VinAI Research:VinAI
+Vanderbilt University:Vanderbilt University
+University of California, Davis:UC Davis
+Kuaishou Technology:Kuaishou Technology
+Show Lab, National University of Singapore:Show Lab
+International Conference on Machine Learning:ICML
+UCAS-Terminus AI Lab:UCAS-Terminus AI Lab
+Monash University:MU
+The Australian National University:ANU
+Mohamed bin Zayed University of Artificial Intelligence:MBZUAI
+Sun Yat-Sen University:SYSU
+Tencent Inc.:Tencent Inc.
+Saint Francis University:SFU
+University of Lisbon:UL
+Chung-Ang University:CAU
+University of North Carolina at Chapel Hill:UNC
+University of Colorado:UC
+University of Science,VNU-HCM:US
+Vietnam National University,Ho Chi Minh City:VNU-HCM
+Department of Computer Science,University of Dayton:UD
+Hunan University:HNU
+University of Warwick:Warwick
+OPPO Mobiles R&D Center:OPPO
+Indian Institute of Science:Indian Institute of Science
+University of Oulu:UO
+Huawei Finland:Huawei Finland
+Korea Institute of Sciene and Technology:KIST
+Korea National University of Science and Technology:KNUST
+Yonsei-KIST Convergence Research Institute:Yonsei-KIST
+National Technical University of Athens:NTUA
+Artificial Intelligence and Learning Systems Laboratory:ISLab
+School of Electrical and Computer Engineering:EECE
+DAMO Academy:DAMO Academy
+HKUST:HKUST
+Tencent:Tencent
+Tsinghua Univerisity:Tsinghua Univerisity
+Harvard University:Harvard University
+Stanford University:Stanford University
+Seeking AI:Seeking AI
+University of Washington, Seattle:University of Washington
+Adobe Research:Adobe Research
+University of Texas at Dallas:UTD
+University of Oxford:UO
+South China University of Technology:SCUT
+Technical University of Munich:TUM
+KAIST:KAIST
+Imperial College London:ImperialCollegeLondon
+Chinese University of Hong Kong:CUHK
+Tencent Hunyuan:Tencent Hunyuan
+Sun Yat-sen University Shenzhen Campus:SYSU
+ASRI, Department of ECE:ASRI
+Interdisciplinary Program in Artificial Intelligence:Interdisciplinary Program in AI
+SNU-LG AI Research Center:SNU-LG AI Research Center
+Microsoft:Microsoft
+Central South University:CSU
+University of Science, VNU-HCM:US-VNU-HCM
+Vietnam National University, Ho Chi Minh City:VNU-HCM
+Department of Computer Science, University of Dayton:UD
+University of Edinburgh:University of Edinburgh
+TMLR Group, Hong Kong Baptist University:TMLR Group
+University of Technology Sydney:UTS
+Sydney AI Centre, The University of Sydney:Sydney AI Centre
+Institute of Research-Naming Convention:IRNC
+Furiosa AI:Furiosa AI
+Johns Hopkins University:JHU
+Adobe Inc.:Adobe Inc.
+Meta AI:Meta AI
+Institute for Infocomm Research A*STAR:InfocommResearch A*STAR
+Centre for Frontier AI Research A*STAR:Frontier AI Research A*STAR
+Jilin University:JilinU
+Institute of Software, Chinese Academy of Sciences:ISCAS
+Space AI:Space AI
+School of Software, Tsinghua University:Tsinghua University
+School of Information Science and Technology, University of Science and Technology of China:USTC
+Harbin Institute of Technology:Harbin Institute of Technology
+Rabbitpre:Rabbitpre
+<br>Hugging Face:Hugging Face
+Nanjing University:NJU
+OpenGVLab, Shanghai AI Laboratory:OpenGVLab
+Tsinghua Shenzhen International Graduate School:Tsinghua Shenzhen Int Grad Sch

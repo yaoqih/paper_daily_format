@@ -6,27 +6,32 @@ import time
 import requests
 from requests.adapters import HTTPAdapter
 import json
-from spider import chatgpt,kimi,get_title_datetime_url,download_paper,refresh_auth,chatgpt_openai
+import re
+from spider import chatgpt,kimi,get_title_datetime_url,download_paper,refresh_auth,chatgpt_openai,translate_baidu
 from utils import clean_filename
 import pdfplumber
 from tqdm import tqdm
-from config import clash_port
+from config import clash_port,clash_address
+# setting
+authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcxMDQ3NjQ3NCwiaWF0IjoxNzEwNDc1NTc0LCJqdGkiOiJjbnBzaWRtY3A3ZjFodXFuMzQ2ZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.7ylsrGD82BJ-KmPUyf7Mr7SVaFCCPTBQK8iX2nxIU-guWDZnwnDCrdM1miGFUi3eegQDF2Yd4LGkoBMP09kRjw"
+task={'summary':1,'mechanism':1,'title_datetime_url':1,'download_paper':1,'translate_title':1}
+assert not (not task['title_datetime_url'] and task['download_paper']),'必须获取论文title才能下载论文'
+assert not (not task['download_paper'] and task['mechanism']),'必须下载论文后才能获取机构信息'
 paper_save_path='./paper_download/'
 if not os.path.exists(paper_save_path):
     os.mkdir(paper_save_path)
-authorization="Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyLWNlbnRlciIsImV4cCI6MTcwOTcyNDMwMywiaWF0IjoxNzA5NzIzNDAzLCJqdGkiOiJjbms0dTJwa3FxNGdxMWRuamExZyIsInR5cCI6ImFjY2VzcyIsInN1YiI6ImNtbDN2bmN1ZHU2NXZtNTFkb2NnIiwic3BhY2VfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jMCIsImFic3RyYWN0X3VzZXJfaWQiOiJjbWwzdm5jdWR1NjV2bTUxZG9jZyJ9.58fxXEha7qfse2sTdiecL2VFTeOSwp3k6AP7B7B5OdzZBL9BTtEaQnbGyvqEsatSf9HWnruyi2diZgNbujIBPw"
+    
+# proxy
 proxies = {
-    'http': f'http://127.0.0.1:{clash_port}',
-    'https': f'https://127.0.0.1:{clash_port}'
+    'http': f'http://{clash_address}:{clash_port}',
+    'https': f'https://{clash_address}:{clash_port}'
 }
 s = requests.Session()
 s.proxies = proxies
 s.verify = False
 s.mount('http://', HTTPAdapter(max_retries=3))
 s.mount('https://', HTTPAdapter(max_retries=3))
-task={'summary':1,'mechanism':1,'title_datetime_url':1,'download_paper':1}
-assert not (not task['title_datetime_url'] and task['download_paper']),'必须获取论文title才能下载论文'
-assert not (not task['download_paper'] and task['mechanism']),'必须下载论文后才能获取机构信息'
+# resume
 if  os.path.exists('result.json'):
     filemt = time.localtime(os.stat('result.json').st_mtime)
     resume=time.strftime("%Y-%m-%d", filemt)==time.strftime("%Y-%m-%d", time.localtime())
@@ -35,9 +40,14 @@ else:
 task_content={}
 
 def get_mechanism(file_name):
-    with pdfplumber.open(file_name) as pdf:
-        page01 = pdf.pages[0] #指定页码
-        text = page01.extract_text()#提取文本
+    try:
+        with pdfplumber.open(file_name) as pdf:
+            page01 = pdf.pages[0] #指定页码
+            text = page01.extract_text()#提取文本
+    except:
+        print('Error:PDF解析失败，请检查文件是否损坏或者网络是否正常！'+file_name)
+        os.remove(file_name)
+        return ''
     return get_mechanism_chatgpt(text)
 
 def get_mechanism_chatgpt(text):
@@ -45,7 +55,7 @@ def get_mechanism_chatgpt(text):
     return chatgpt_openai(content=content,s=s)
 
 def get_summary(arxiv_pdf_url,title=None):
-    return kimi(content=f"请用300字总结，分三段并且简述在相比于之前研究的改进: <url id=\"\" type=\"url\" status=\"\" title=\"\" wc=\"\">{arxiv_pdf_url}</url>",s=s,authorization=authorization,title=title)
+    return kimi(content=f"请用300字总结，分三段: <url id=\"\" type=\"url\" status=\"\" title=\"\" wc=\"\">{arxiv_pdf_url}</url>",s=s,authorization=authorization,title=title)
 if not resume:
     for file in os.listdir(paper_save_path):
         if file.endswith('.pdf'):
@@ -57,7 +67,7 @@ if resume:
 for topic in topics:
     for Paper in topics[topic]:
         if Paper not in task_content:
-            task_content[Paper]={"title_datetime_url":None,"mechanism":None,"summary":None}
+            task_content[Paper]={"title_datetime_url":None,"mechanism":None,"summary":None,"translate_title":None}
 pbar = tqdm(task_content.keys())
 for Paper in pbar:
     try:
@@ -69,14 +79,30 @@ for Paper in pbar:
             task_content[Paper]['mechanism']=get_mechanism(paper_save_path+clean_filename(task_content[Paper]['title_datetime_url'][0])+'.pdf')
         if task['summary'] and not task_content[Paper]['summary']:
             task_content[Paper]['summary']=get_summary(Paper.replace('abs','pdf'),task_content[Paper]['title_datetime_url'][0][:20])
+            task_content[Paper]['summary']=re.sub(r'\*\*.*?\*\*\n', "",task_content[Paper]['summary'])
+            task_content[Paper]['summary']=re.sub(r'\n\n\n', "\n\n",task_content[Paper]['summary'])
+            task_content[Paper]['summary']=re.sub(r'\n\n\n', "\n\n",task_content[Paper]['summary'])
+        if task['translate_title'] and not task_content[Paper]['translate_title']:
+            task_content[Paper]['translate_title']=translate_baidu(task_content[Paper]['title_datetime_url'][0])
     except Exception as e:
         print(e) 
         print(f'Error in {Paper}')
         json.dump(task_content,open('result.json','w',encoding='utf-8'),ensure_ascii=False)
     json.dump(task_content,open('result.json','w',encoding='utf-8'),ensure_ascii=False)
 with open('result.md','w',encoding='utf-8') as f:
+    if task['translate_title']:
+        title_summary=''
+        for topic in topics:
+            for Paper in topics[topic]:
+                if not task_content[Paper]['title_datetime_url']:
+                    title,publish_datetime,Project_Page='','',''
+                else:
+                    title,publish_datetime,Project_Page=task_content[Paper]['title_datetime_url']
+                title_summary+=title+'\n'
+                title_summary+=task_content[Paper]['translate_title']+'\n'
+        f.write(title_summary)
     for topic in topics:
-        f.write('# Topic: '+topic+'｜\n\n')
+        f.write('# Topic: '+topic+'\n\n')
         for Paper in topics[topic]:
             if not task_content[Paper]['title_datetime_url']:
                 title,publish_datetime,Project_Page='','',''
@@ -100,6 +126,9 @@ with open('mechanism_check.txt','w',encoding='utf-8') as f:
             for mecanism in task_content[paper]['mechanism'].replace('&nbsp;',' ').split('||'):
                 mecanism_split=mecanism.split(':')
                 mecanism_long=mecanism_split[0].strip()
-                mecanism_short=mecanism_dict.get(mecanism_long) if mecanism_dict.get(mecanism_long) else mecanism_split[1].strip()
+                if len(mecanism_split)==1:
+                    mecanism_short=''
+                else:
+                    mecanism_short=mecanism_dict.get(mecanism_long) if mecanism_dict.get(mecanism_long) else mecanism_split[1].strip()
                 f.write(f'{mecanism_long}:{mecanism_short}\n')
             f.write('--------------------------------------------------------------------------------\n')

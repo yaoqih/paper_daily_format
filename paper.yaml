@@ -1,16 +1,35 @@
-Image Generation｜:
-    - https://arxiv.org/abs/2403.02981
-    - https://arxiv.org/abs/2403.02580
-Video Generation:
-    - https://arxiv.org/abs/2403.02827
-3D Generation:
-    - https://arxiv.org/abs/2403.02460
-3D Reconstruction:
-    - https://arxiv.org/abs/2403.02561
-Motion Generation:
-    - https://arxiv.org/abs/2403.03122
-Audio Generation｜Speech:
-    - https://arxiv.org/abs/2403.03100
-LLM｜Code, Math:
-    - https://arxiv.org/abs/2403.03163
-    - https://arxiv.org/abs/2403.02884
+Image Generation｜Text-to-Image｜Multi-turn Dialogue, Semantic Control:
+    - https://arxiv.org/abs/2403.08857
+    - https://arxiv.org/abs/2403.09055
+Image Generation｜Design｜Visual Text Rendering, Design Templates:
+    - https://arxiv.org/abs/2403.09622
+    - https://arxiv.org/abs/2403.09093
+Image Generation｜AR Painting, Sketch:
+    - https://arxiv.org/abs/2403.08876
+    - https://arxiv.org/abs/2403.09480
+    - https://arxiv.org/abs/2403.09344
+Image Generation｜Interpolation, Editing, Relighting:
+    - https://arxiv.org/abs/2403.08840
+    - https://arxiv.org/abs/2403.09468
+    - https://arxiv.org/abs/2403.09632
+
+Video Generation｜Editing, Ego-to-exo:
+    - https://arxiv.org/abs/2403.09334
+    - https://arxiv.org/abs/2403.09194
+
+3D Generation｜Text-to-3D, Image-to-3D:
+    - https://arxiv.org/abs/2403.09140
+    - https://arxiv.org/abs/2403.09439
+    - https://arxiv.org/abs/2403.09625
+    - https://arxiv.org/abs/2403.09236
+    - https://arxiv.org/abs/2403.08902
+3D Representation｜3D-GS:
+    - https://arxiv.org/abs/2403.09413
+
+Code Generation｜Web Screenshots, HTML:
+    - https://arxiv.org/abs/2403.09029
+
+Image/Video/3D｜State Space Models(SSMs)｜Image Recognition, Video Understanding, Gesture Synthesis:
+    - https://arxiv.org/abs/2403.09338
+    - https://arxiv.org/abs/2403.09626
+    - https://arxiv.org/abs/2403.09471

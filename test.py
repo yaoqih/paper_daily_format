@@ -19,6 +19,7 @@
 from openai import OpenAI
 import os
 import httpx
+from spider import translate_baidu
 clash_port = 8466
 
 os.environ['http_proxy'] = 'None'
@@ -61,8 +62,9 @@ def gpt_35_api_stream(messages: list):
             print(chunk.choices[0].delta.content, end="")
 
 if __name__ == '__main__':
-    messages = [{'role': 'user','content': '鲁迅和周树人的关系'},]
+    print(translate_baidu('Hello world'))
+    # messages = [{'role': 'user','content': '鲁迅和周树人的关系'},]
     # 非流式调用
-    gpt_35_api(messages)
+    # gpt_35_api(messages)
     # 流式调用
     # gpt_35_api_stream(messages)
